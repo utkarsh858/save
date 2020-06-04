@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
+import {Navbar,Nav} from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Navbar bg="light" expand="lg">
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#">News</Nav.Link>
+      <Nav.Link href="#">Our Work</Nav.Link>
+      <Nav.Link href="#">Case Studies</Nav.Link>
+      <Nav.Link href="#">Appreciations</Nav.Link>
+      <Nav.Link href="#">Testimonials</Nav.Link>
+      <Nav.Link href="#">Our Partners</Nav.Link>
+      <Nav.Link href="#">About Us</Nav.Link>
+      <Nav.Link href="#">Our Team</Nav.Link>
+      <Nav.Link href="#">Methodology</Nav.Link>
+      <Nav.Link href="#">Contact Us</Nav.Link>
+      <Nav.Link href="#">Gallery</Nav.Link>
+      <Nav.Link href="#">Blog</Nav.Link>
+      <Nav.Link href="#">Donate</Nav.Link>
+
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
   );
 }
 
