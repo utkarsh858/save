@@ -1,17 +1,21 @@
 import React from 'react';
 import logo from './logo.png';
 import './App.css';
+import {Box} from '@material-ui/core';
 import {Navbar,Nav} from 'react-bootstrap';
+
 
 function App() {
   return (
-    
+    <Box>
+    <img className="logo" src={logo} />
+    <Box component ="span">SAVE </Box>
     <Navbar bg="light" expand="lg">
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link href="#">News</Nav.Link>
-      <Nav.Link href="#">Our Work</Nav.Link>
+      <Nav.Link href="#work">Our Work</Nav.Link>
       <Nav.Link href="#">Case Studies</Nav.Link>
       <Nav.Link href="#">Appreciations</Nav.Link>
       <Nav.Link href="#">Testimonials</Nav.Link>
@@ -27,6 +31,7 @@ function App() {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+</Box>
   );
 }
 
