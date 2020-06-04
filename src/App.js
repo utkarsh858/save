@@ -4,6 +4,7 @@ import './App.css';
 import {Box} from '@material-ui/core';
 import {Navbar,Nav} from 'react-bootstrap';
 import Work from './Work/Work.js';
+import News from './News/News.js';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="#">News</Nav.Link>
+      <Nav.Link href="#news">News</Nav.Link>
       <Nav.Link href="#work">Our Work</Nav.Link>
       <Nav.Link href="#">Case Studies</Nav.Link>
       <Nav.Link href="#">Appreciations</Nav.Link>
@@ -32,6 +33,7 @@ function App() {
   </Navbar.Collapse>
 </Navbar>
 <Work />
+<News />
 </Box>
   );
 }
