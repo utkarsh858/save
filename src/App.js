@@ -3,7 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import {Box} from '@material-ui/core';
 import {Navbar,Nav} from 'react-bootstrap';
-
+import Work from './Work/Work.js';
 
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+<Work />
 </Box>
   );
 }
