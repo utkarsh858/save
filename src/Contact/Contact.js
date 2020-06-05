@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
-import {Box,Grid,Typography,Button,TextField} from '@material-ui/core';
+import {Box,Grid,Typography,Button,TextField,Avatar} from '@material-ui/core';
 import filler from './filler.jpg';
 import './Contact.css';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 export default class Contact extends Component{
 
@@ -29,6 +32,9 @@ export default class Contact extends Component{
 			</Typography>
 			</Grid>
 			</Grid>
+			<Avatar><FacebookIcon /></Avatar>
+			<Avatar><InstagramIcon /></Avatar>
+			<Avatar><TwitterIcon /></Avatar>
 			</Box>
 		);
 	}
