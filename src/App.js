@@ -5,6 +5,7 @@ import {Box} from '@material-ui/core';
 import {Navbar,Nav} from 'react-bootstrap';
 import Work from './Work/Work.js';
 import News from './News/News.js';
+import Team from './Team/Team.js';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Nav.Link href="#">Testimonials</Nav.Link>
       <Nav.Link href="#">Our Partners</Nav.Link>
       <Nav.Link href="#">About Us</Nav.Link>
-      <Nav.Link href="#">Our Team</Nav.Link>
+      <Nav.Link href="#team">Our Team</Nav.Link>
       <Nav.Link href="#">Methodology</Nav.Link>
       <Nav.Link href="#">Contact Us</Nav.Link>
       <Nav.Link href="#">Gallery</Nav.Link>
@@ -34,6 +35,7 @@ function App() {
 </Navbar>
 <Work />
 <News />
+<Team />
 </Box>
   );
 }

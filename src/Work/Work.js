@@ -10,7 +10,7 @@ export default class Work extends Component{
 		return (
 			<Box id="work">
 			 <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            Work
           </Typography>
 			<Grid container spacing={9}>
 			<Grid item xs={12} sm={4}>
