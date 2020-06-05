@@ -7,6 +7,7 @@ import Work from './Work/Work.js';
 import News from './News/News.js';
 import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
+import Appreciation from './Appreciation/Appreciation.js';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Nav.Link href="#news">News</Nav.Link>
       <Nav.Link href="#work">Our Work</Nav.Link>
       <Nav.Link href="#">Case Studies</Nav.Link>
-      <Nav.Link href="#">Appreciations</Nav.Link>
+      <Nav.Link href="#appreciation">Appreciations</Nav.Link>
       <Nav.Link href="#">Testimonials</Nav.Link>
       <Nav.Link href="#">Our Partners</Nav.Link>
       <Nav.Link href="#">About Us</Nav.Link>
@@ -37,6 +38,7 @@ function App() {
 <Work />
 <News />
 <Team />
+<Appreciation />
 <Contact />
 </Box>
   );
