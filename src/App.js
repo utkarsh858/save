@@ -5,6 +5,7 @@ import {Box} from '@material-ui/core';
 import {Navbar,Nav} from 'react-bootstrap';
 import Work from './Work/Work.js';
 import News from './News/News.js';
+import CaseStudies from './CaseStudies/CaseStudies.js';
 import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
 import Appreciation from './Appreciation/Appreciation.js';
@@ -20,7 +21,7 @@ function App() {
     <Nav className="mr-auto">
       <Nav.Link href="#news">News</Nav.Link>
       <Nav.Link href="#work">Our Work</Nav.Link>
-      <Nav.Link href="#">Case Studies</Nav.Link>
+      <Nav.Link href="#casestudies">Case Studies</Nav.Link>
       <Nav.Link href="#appreciation">Appreciations</Nav.Link>
       <Nav.Link href="#">Testimonials</Nav.Link>
       <Nav.Link href="#">Our Partners</Nav.Link>
@@ -37,6 +38,7 @@ function App() {
 </Navbar>
 <Work />
 <News />
+<CaseStudies/>
 <Team />
 <Appreciation />
 <Contact />
