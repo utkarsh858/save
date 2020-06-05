@@ -6,6 +6,7 @@ import {Navbar,Nav} from 'react-bootstrap';
 import Work from './Work/Work.js';
 import News from './News/News.js';
 import Team from './Team/Team.js';
+import Contact from './Contact/Contact.js';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <Nav.Link href="#">About Us</Nav.Link>
       <Nav.Link href="#team">Our Team</Nav.Link>
       <Nav.Link href="#">Methodology</Nav.Link>
-      <Nav.Link href="#">Contact Us</Nav.Link>
+      <Nav.Link href="#contact">Contact Us</Nav.Link>
       <Nav.Link href="#">Gallery</Nav.Link>
       <Nav.Link href="#">Blog</Nav.Link>
       <Nav.Link href="#">Donate</Nav.Link>
@@ -36,6 +37,7 @@ function App() {
 <Work />
 <News />
 <Team />
+<Contact />
 </Box>
   );
 }
