@@ -9,7 +9,9 @@ const OurWork = new Schema(
 	content: { type: String, required: true },
 },
 {
-
+	timestamps:true,
 },
 
 )
+
+module.exports = mongoose.model('our_works',OurWork)
