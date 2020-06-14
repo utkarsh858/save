@@ -102,7 +102,7 @@ getOurWorkById = async (req, res) => {
 }
 
 getOurWorks = async (req, res) => {
-    await OurWork.find({}, (err, our_work) => {
+    await OurWork.find({}, (err, our_works) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
