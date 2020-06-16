@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### The project
+
+We have two sections of the project. 
+One NodeJS backend handling the MongoDB database and other frontend made up of react.
+
+Start the backend by typing `node server_db.js` in backend directory, it will start the database on localhost:8000 and start the frontend by typing `npm start` in the root directory. 
