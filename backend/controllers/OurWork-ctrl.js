@@ -115,10 +115,30 @@ getOurWorks = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getOurWorkByPage = async (req, res) => {
+    pageNum = req.params.pageNum
+    number_of_required_contents = req.params.numOfElements
+
+    await OurWork.find({}, (err, our_works) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!our_works.length) {
+            return res
+                .status(404)
+                .json({ success: false, error: `OurWork not found` })
+        }
+        // console.log(our_works.length)
+        return res.status(200).json({ success: true,data_length: our_works.length, data: our_works.slice((pageNum-1)*number_of_required_contents,(pageNum)*number_of_required_contents) })
+        // return res.status(200).json({ success: true, data: our_works })
+    }).catch(err => console.log(err))
+}
+
 module.exports = {
     createOurWork,
     updateOurWork,
     deleteOurWork,
     getOurWorks,
     getOurWorkById,
+    getOurWorkByPage
 }
