@@ -1,5 +1,19 @@
 import React,{Component} from 'react';
-import {Box,Grid,Card,CardContent,CardActions,CardMedia,IconButton,Typography} from '@material-ui/core';
+import {Box,
+	Button,
+	Grid,
+	Card,
+	CardContent,
+	CardActions,
+	CardMedia,
+	IconButton,
+	Typography,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	DialogContentText,
+	DialogTitle
+} from '@material-ui/core';
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward} from '@material-ui/icons'
 import api from '../api'
@@ -15,9 +29,26 @@ export default class Work extends Component{
 			perPage: 6,
 			currentPage: 1,
 			numOfPages: 16,
+			open: false,
+			dialogTitle: '',
+			dialogContent: '',
+			dialogDate: '',
 		}
 	}
 	
+	handleClickOpen = (title,content,date) => {
+    this.setState({
+    open: true,
+    dialogTitle : title,
+    dialogDate : date,
+    dialogContent : content,
+    });
+  	}
+
+	handleClose = () => {
+    this.setState({ open: false });
+  	}
+
 	componentDidMount = async () => {
 		this.updatePage(1)
 	}
@@ -43,7 +74,7 @@ export default class Work extends Component{
 					{data.content}
 					</CardContent>
 					<CardActions disableSpacing>
-					<IconButton aria-label="add to favorites">
+					<IconButton aria-label="add to favorites" onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
 					<ArrowForward />
 					</IconButton>
 					</ CardActions>
@@ -85,7 +116,28 @@ export default class Work extends Component{
             activeClassName={"active"}
             />
 
-
+			<Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        	>
+          <DialogTitle id="alert-dialog-title">{this.state.dialogTitle}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+            {this.state.dialogContent}
+            {this.state.date}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Disagree
+            </Button>
+            <Button onClick={this.handleClose} color="primary" autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
 			</ Box>
 			)
 		}
