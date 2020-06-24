@@ -79,20 +79,23 @@ export default class Work extends Component{
 				our_works_visual : our_works.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
-					<Card className="card">
+					<Card className="card" onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
 					<CardMedia
-					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
+					src='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
 					title="Paella dish"
 					className="card-media"
 					/>
 					<CardContent>
-					{data.title} <br />
+					<Typography variant="h6" gutterBottom>{data.title}</Typography>
+					 <br />
+					 <Typography variant="body1" gutterBottom>
 					{data.content}
+					</Typography>
 					</CardContent>
 					<CardActions disableSpacing>
-					<IconButton aria-label="add to favorites" onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
+					
 					<ArrowForward />
-					</IconButton>
+					
 					</ CardActions>
 					</Card>
 					</Grid>
@@ -108,9 +111,9 @@ export default class Work extends Component{
 	render(){
 		return (
 			<Box id="work">
-			<Typography gutterBottom variant="h5" component="h2">
-			Work
-			</Typography>
+			<Typography gutterBottom variant="h5" display="block" class="section">
+			OUR WORK
+			</Typography><br/>
 			<Grid container spacing={9}>
 			{this.state.our_works_visual}
 			</Grid>

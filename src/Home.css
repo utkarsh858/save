@@ -13,15 +13,7 @@
 	border-top: 5px;
 	border-color: brown;
 	border-top-style: solid;
-	background-color: linear-gradient(to bottom right, #3399ff, #990033) !important;
-	color: white;
+	background-color:  #ccffcc;
 }
 
-.in{
-	background-color: linear-gradient(to bottom right, #3399ff, #990033) !important;
-	color:white;
-}
 
-Nav.Link{
-	color:white;
-}

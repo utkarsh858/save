@@ -5,9 +5,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import 'fontsource-roboto';
 import Donate from './Donate/Donate.js';
 import Gallery from './Gallery/Gallery.js';
 import Home from './Home';
+
 
 function App() {
   return (

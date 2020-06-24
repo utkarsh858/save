@@ -9,7 +9,7 @@ import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
 import Appreciation from './Appreciation/Appreciation.js';
 import './Home.css';
-
+import 'fontsource-roboto';
 
 function Home() {
   return (

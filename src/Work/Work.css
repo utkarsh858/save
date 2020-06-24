@@ -1,9 +1,32 @@
 .card {
 maxWidth:375;
+border-radius:0px !important;
+}
+
+.card:hover{
+	background-color:  #ccffcc;
+}
+
+.card:active{
+	background-color: brown;
 }
 
 .card-media {
     height: 300;
     marginTop:'30';
     marginLeft:'20';
+}
+.section{
+	border-color: brown;
+	border-width: 3px;
+	border-left-style: solid;
+	padding-left: 10px;
+}
+
+#work{
+	margin-top: 40px;
+}
+
+CardActions{
+
 }
