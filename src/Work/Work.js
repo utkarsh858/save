@@ -12,13 +12,26 @@ import {Box,
 	DialogActions,
 	DialogContent,
 	DialogContentText,
-	DialogTitle
+	DialogTitle,
+	makeStyles
 } from '@material-ui/core';
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward} from '@material-ui/icons'
 import api from '../api'
 import ReactPaginate from 'react-paginate';
 import './Work.css'
+
+const useStyles = makeStyles({
+	root: {
+	  maxWidth:375,
+	},
+	media: {
+		height: 300,
+		// paddingTop: '30%', // 16:9,
+		marginTop:'30',
+		marginLeft:'20',
+	  },
+  });
 
 export default class Work extends Component{
 	constructor(props){
@@ -57,17 +70,20 @@ export default class Work extends Component{
 		this.setState({isLoading:true, currentPage : pageNum})
 
 		await api.getOurWorksByPage(this.state.currentPage,this.state.perPage).then(our_works => {	
+			// our_works = JSON.parse(our_works);
+			// console.log(our_works)
 			this.setState({
 				// our_works : our_works.data.data,
 				isLoading: false,
-				numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
-				our_works_visual : our_works.data.data.map((data) => {
+				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
+				our_works_visual : our_works.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
-					<Card>
+					<Card className="card">
 					<CardMedia
-					image='filler.jpg'
+					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
 					title="Paella dish"
+					className=".card-media"
 					/>
 					<CardContent>
 					{data.title} <br />
@@ -83,10 +99,6 @@ export default class Work extends Component{
 					)
 				})
 			})
-			// console.log(Math.ceil((our_works.data.data_length)/(this.perPage))
-			// console.log(Math.ceil(our_works.data.data_length);
-			// console.log(Math.ceil(this.perPage);
-			
 		})
 		
 	}

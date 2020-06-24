@@ -4,12 +4,12 @@ import {Box,Grid,Card,CardContent,CardActions,CardMedia,IconButton,Typography
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward} from '@material-ui/icons'
 import Calendar from 'react-calendar';
-
+import './News.css';
 
 export default class Work extends Component{
 	render(){
 		return (
-			<Box id="news">
+			<Box id="news" class="colour">
 			 <Typography gutterBottom variant="h5" component="h2">
             News
           </Typography>
