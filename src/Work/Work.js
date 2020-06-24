@@ -83,7 +83,7 @@ export default class Work extends Component{
 					<CardMedia
 					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
 					title="Paella dish"
-					className=".card-media"
+					className="card-media"
 					/>
 					<CardContent>
 					{data.title} <br />

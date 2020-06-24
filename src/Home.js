@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.png';
-import './Home.css';
 import {Box} from '@material-ui/core';
 import {Navbar,Nav} from 'react-bootstrap';
 import Work from './Work/Work.js';
@@ -9,16 +8,18 @@ import CaseStudies from './CaseStudies/CaseStudies.js';
 import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
 import Appreciation from './Appreciation/Appreciation.js';
+import './Home.css';
+
 
 function Home() {
   return (
-    <Box>
+    <Box className="document">
     <img className="logo" src={logo} />
     <Box component ="span">SAVE </Box>
-    <Navbar bg="light" expand="lg">
+  <Navbar bg="light" expand="lg" className="menu">
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
+    <Nav className="in">
       <Nav.Link href="#news">News</Nav.Link>
       <Nav.Link href="#work">Our Work</Nav.Link>
       <Nav.Link href="#casestudies">Case Studies</Nav.Link>

@@ -2,3 +2,26 @@
 	height: 40vmin;
 	
 }
+
+.document{
+	margin: 0px 0px 0px 0px ;
+	padding-left:20px ;
+	padding-right:20px;
+}
+
+.menu{
+	border-top: 5px;
+	border-color: brown;
+	border-top-style: solid;
+	background-color: linear-gradient(to bottom right, #3399ff, #990033) !important;
+	color: white;
+}
+
+.in{
+	background-color: linear-gradient(to bottom right, #3399ff, #990033) !important;
+	color:white;
+}
+
+Nav.Link{
+	color:white;
+}
