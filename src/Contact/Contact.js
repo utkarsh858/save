@@ -21,23 +21,23 @@ export default class Contact extends Component{
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			CONTACT US
 			</Typography>
-			<Grid container spacing={9}>
+			<Grid container spacing={1}>
 			<Grid item xs={12} sm={6}>
 			<Typography gutterBottom variant="body1" class="impression">
 			We'd love to hear from You.
 			</Typography>
 				<form class="form">
 				<TextField id="name" label="Name" variant="outlined" fullWidth/>
-				<br/>
+				<br/><br/>
 				<TextField id="email" label="E-mail" variant="outlined" fullWidth/>
-				<br/>
+				<br/><br/>
 				<TextField id="query" label="Query" variant="outlined" fullWidth multiline/>
 				<Button />
 				</form>
 			</Grid>
-			<Grid item xs={12} sm={6}>
-			<img className="contact" src ={filler}/>
-			<Typography>
+			<Grid item xs={12} sm={6} class="right">
+			<img className="image" src ={filler}/>
+			<Typography class="details">
 			<div class="contact">
 			<CallIcon/> +91-9634689949
 			</div>
@@ -51,12 +51,14 @@ export default class Contact extends Component{
 
 			</Grid>
 			</Grid>
-			<Typography variant="body2" gutterBottom class="center">See us on</Typography>
-			<Grid container spacing={1}>
-			<Avatar class="social" variant="rounded" ><Link><FacebookIcon fontSize="large"/></Link></Avatar>
-			<Avatar class="social" variant="rounded" ><Link><InstagramIcon fontSize="large"/></Link></Avatar>
-			<Avatar class="social" variant="rounded" ><Link><TwitterIcon fontSize="large"/></Link></Avatar>
-			</Grid>
+			<br/>
+			<Box class="center">
+			<Typography variant="body2" gutterBottom id="seeuson">See us on</Typography>
+			<br/>
+			<div class="social" ><Link><FacebookIcon fontSize="large" id="icon"/></Link></div>
+			<div class="social" ><Link><InstagramIcon fontSize="large" id="icon"/></Link></div>
+			<div class="social" ><Link><TwitterIcon fontSize="large" id="icon"/></Link></div>
+			</Box>
 			</Box>
 		);
 	}

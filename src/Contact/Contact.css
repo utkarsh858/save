@@ -1,5 +1,5 @@
-.contact{
-	width:100%;
+.image{
+	height:30vw;
 }
 
 .section{
@@ -7,6 +7,14 @@
 	border-width: 3px;
 	border-left-style: solid;
 	padding-left: 10px;
+}
+.right{
+	position: relative;
+}
+
+.details{
+	position: absolute;
+	bottom:0px;
 }
 
 #contact{
@@ -41,10 +49,13 @@
 	background-color: #ccffcc;
 	color: brown;
 	border-radius: 50%;
-	texr-align:center;
-	vertical-align: middle ;
-	height: 10vw;
-	width:10vw;
+	height: 15vw;
+	width:15vw;
+	text-align:center;/*
+	vertical-align: middle;*/
+	position: relative;
+	display: inline-block;
+	margin-left: 5px;
 }
 
 .social:hover{
@@ -52,5 +63,23 @@
 	color:#ccffcc;
 }
 .center{
-	align-self: center;
+	text-align:center;
+}
+
+#icon{
+/*	position:relative;
+	top:6%;
+	left:6%;*/
+	/*text-align: center;*/
+	display: inline-block;
+	/*margin:auto;*/
+	position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+	font-size: 13vw;
+}
+
+#seeuson{
+	font-size: 2em;
 }
