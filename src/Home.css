@@ -13,7 +13,25 @@
 	border-top: 5px;
 	border-color: brown;
 	border-top-style: solid;
-	background-color:  #ccffcc;
+	background-color:  #ccffcc !important;
+	top:0;
+	padding: 0px 0px 0px 0px !important;
 }
 
+.right-1{
+	position: absolute;
+	right:80px;
+}
+
+.right-0{
+	position:absolute;
+	right:0px;
+	background-color: black;
+	color:white !important;
+}
+
+.navlink:hover{
+	background-color: brown;
+	color:white !important;
+}
 
