@@ -21,17 +21,17 @@ import api from '../api'
 import ReactPaginate from 'react-paginate';
 import './Work.css'
 
-const useStyles = makeStyles({
-	root: {
-	  maxWidth:375,
-	},
-	media: {
-		height: 300,
-		// paddingTop: '30%', // 16:9,
-		marginTop:'30',
-		marginLeft:'20',
-	  },
-  });
+// const useStyles = makeStyles({
+// 	root: {
+// 	  maxWidth:375,
+// 	},
+// 	media: {
+// 		height: 300,
+// 		// paddingTop: '30%', // 16:9,
+// 		marginTop:'30',
+// 		marginLeft:'20',
+// 	  },
+//   });
 
 export default class Work extends Component{
 	constructor(props){
@@ -79,11 +79,12 @@ export default class Work extends Component{
 				our_works_visual : our_works.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
-					<Card className="card" onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
+					<Card onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
 					<CardMedia
-					src='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
+					component='img'
+					height='300'
+					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
 					title="Paella dish"
-					className="card-media"
 					/>
 					<CardContent>
 					<Typography variant="h6" gutterBottom>{data.title}</Typography>
