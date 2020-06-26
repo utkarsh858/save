@@ -8,12 +8,15 @@ const api = axios.create({
 // export const getAllOurWorks = () => api.get(`/our_works`)
 export const getOurWorksByPage = 
 (pageNum,numOfElements) => api.get(`/our_works/${numOfElements}/${pageNum}`)
+export const getOurTeam = 
+(pageNum,numOfElements) => api.get(`/our_team/${numOfElements}/${pageNum}`)
 // export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
 // export const deleteMovieById = id => api.delete(`/movie/${id}`)
 // export const getMovieById = id => api.get(`/movie/${id}`)
 
 const apis = {
 	getOurWorksByPage,
+	getOurTeam,
     // insertMovie,
     // getAllOurWorks,
     // updateMovieById,
