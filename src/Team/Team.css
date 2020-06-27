@@ -57,3 +57,11 @@
 	border-left-style: solid;
 	padding-left: 10px;
 }
+
+.team-name{
+	font-size:2vw;
+}
+
+.team-desc{
+	font-size: 1vw;
+}

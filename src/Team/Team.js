@@ -36,10 +36,10 @@ export default class Team extends Component{
 						<img src={filler} class='tile-left' />
 
 						<div  className="left">
-						<Typography variant="h5" display="block" gutterBottom>
+						<Typography variant="h5" display="block" gutterBottom class="team-name">
 						{data.name}
 						</Typography>
-						<Typography variant="body2" gutterBottom>
+						<Typography variant="body2" gutterBottom  class="team-desc">
 						{data.description}</Typography>
 						</div>
 						</div>
@@ -52,10 +52,10 @@ export default class Team extends Component{
 						<Grid item xs={12} sm={4}>
 						<div  className="cell">
 						<div  className="right">
-						<Typography variant="h5" display="block" gutterBottom>
+						<Typography variant="h5" display="block" gutterBottom class="team-name">
 						{data.name}
 						</Typography>
-						<Typography variant="body2" gutterBottom>
+						<Typography variant="body2" gutterBottom class="team-desc">
 						{data.description}</Typography>
 						</div>
 						<img src={filler} class='tile-right' />
