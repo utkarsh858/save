@@ -28,7 +28,7 @@ export default class Appreciation extends Component{
 					isLoading:false,
 					appreciations_visual : appreciations.data.map((data) => {
 						return(
-							<Card class="appr-card">
+							<Box class="appr-card">
 							<Grid container >
 							<Grid item xs={12} sm={6}>
 							<Card class="appr-image">
@@ -61,8 +61,7 @@ export default class Appreciation extends Component{
 							</Card>
 							</Grid>
 							</Grid>
-    
-  							</Card>
+    				</Box>
 						)
 					})
 
