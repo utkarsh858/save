@@ -10,6 +10,8 @@ export const getOurWorksByPage =
 (pageNum,numOfElements) => api.get(`/our_works/${numOfElements}/${pageNum}`)
 export const getOurTeam = 
 (pageNum,numOfElements) => api.get(`/our_team/${numOfElements}/${pageNum}`)
+export const getAppreciations = 
+(pageNum,numOfElements) => api.get(`/quotes/${numOfElements}/${pageNum}`)
 // export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
 // export const deleteMovieById = id => api.delete(`/movie/${id}`)
 // export const getMovieById = id => api.get(`/movie/${id}`)
@@ -17,11 +19,7 @@ export const getOurTeam =
 const apis = {
 	getOurWorksByPage,
 	getOurTeam,
-    // insertMovie,
-    // getAllOurWorks,
-    // updateMovieById,
-    // deleteMovieById,
-    // getMovieById,
+	getAppreciations
 }
 
 export default apis
