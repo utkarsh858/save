@@ -1,6 +1,3 @@
-.profile{
-	width:100%;
-}
 
 .section{
 	border-color: brown;
@@ -11,56 +8,71 @@
 	margin-top: 30px;
 }
 
-.appr-card{
-	width:100%;
-	max-height:30vw;
-	/*background-color: #ccffcc;*/
+.appr-image-cont{
+	/*background-color: green;*/
+	height:30vw;
+	position: relative;
+	/*width: 100%;*/
+	/*padding-left:10%;*/
 }
 
 .appr-image{
-	max-width: 100%;
-	max-height: 30vw;
+	height: 30vw;
+	display: inline-block;
+	/*margin:auto;*/
+	
+	
+	position:absolute;
+	top:50%;
+	left:50%;
+  transform: translate(-50%, -50%);
+
 }
 
 .appr-textbox{
-	position: relative;
-	max-width:100%;
-	height:100%;
-	/*display: inline-block;*/
+	/*background-color: yellow;*/
+	height:30vw;
 	text-align: center;
-	/*margin-left: 20px;*/
+
 	color:brown;
-max-height: 30vw;
-}
-
-.appr-quote{
-
-	font-size:2vw;
-	vertical-align: middle;
-	position: relative;
-	top:50%;
-	left:50%;
-	transform: translate(-50%,-50%); 
 }
 
 .appr-upper-part{
-	position: absolute;
-	top:0px;
-	height: 80%;
-	/*padding-right: 40px;*/
-	/*padding-top: auto;*/
-	/*padding-bottom: auto;*/
-	/*vertical-align: middle;*/
+	font-size:2vw;
+	border-bottom-width:2px;
+	border-bottom-color:brown;
+
 }
 
-.appr-lower-part{
-	text-align: left;
-	position: absolute;
-	bottom:0px;
-	/*display: inline-block;*/
-	/*width:100%;*/
-	height:20%;
+.appr-page-nav{
+	/*background-color: green;*/
+	display: inline-block;
+	position: relative;
+	left:50%;
+  transform: translate(-50%,0);
+
 }
+
+.appr-back , .appr-forw{
+	color:brown;
+	background-color: transparent;
+	border-width: 0px;
+	display: inline-block;
+	position: relative;
+	top:8px;
+	/*margin:auto;*/
+
+}
+.MuiPagination-ul{
+	color: brown;
+}
+.appr-nav{
+	color:brown;
+	display: inline-block;
+	/*margin:auto;*/
+}
+
+
 
 #appr-quotemark-start{
 

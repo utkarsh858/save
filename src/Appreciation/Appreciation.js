@@ -4,7 +4,6 @@ import {Box,Grid,Card,CardContent,CardMedia,IconButton,Typography
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
 import filler from "./filler.jpg";
-import HorizontalGallery from 'react-dynamic-carousel'
 import './Appreciation.css';
 import api from "../api"
 
@@ -13,62 +12,69 @@ export default class Appreciation extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			appreciations_visual : [],
+			appreciations : [],
 			isLoading : false,
+			current_page: 0,
+			limit : 1,
+			name:"",
+			quote:"",
+			description:"",
+			image:"",
 		}
 	}
-		componentDidMount = async()=>{
-			this.updatePage()
-		}
+	componentDidMount = async()=>{
+		this.setState({isLoading:true})
+		await api.getAppreciations(1,20).then(appreciation_list => {
+			this.setState({
+				isLoading:false,
+				appreciations : appreciation_list.data,
+				limit : appreciation_list.data.length,
+			})	
 
-		updatePage = async() => {
-			this.setState({isLoading:true})
-			await api.getAppreciations(1,20).then(appreciations => {
-				this.setState({
-					isLoading:false,
-					appreciations_visual : appreciations.data.map((data) => {
-						return(
-							<Box class="appr-card">
-							<Grid container >
-							<Grid item xs={12} sm={6}>
-							<Card class="appr-image">
-							<img src={filler} class="appr-image"/>
-							</Card>
-							</Grid >
-							<Grid item xs={12} sm={6}>
-							<Card class="appr-textbox">
-							<Box class="appr-upper-part">
+			this.setState({
+				name : this.state.appreciations[this.state.current_page].name,
+				image : this.state.appreciations[this.state.current_page].image,
+				quote : this.state.appreciations[this.state.current_page].quote,
+				description:this.state.appreciations[this.state.current_page].description,
+			});
+		})
+	}
 
+	nextPage = ()=>{
+		this.setState({
+			current_page : (this.state.current_page+1)%this.state.limit
+		});
+		this.setState({
+			name : this.state.appreciations[this.state.current_page].name,
+			image : this.state.appreciations[this.state.current_page].image,
+			quote : this.state.appreciations[this.state.current_page].quote,
+			description:this.state.appreciations[this.state.current_page].description,
+		});
+	}
 
-							<FormatQuoteRounded id="appr-quotemark-start"/>
+	previousPage = ()=>{
+		this.setState({
+			current_page : (this.state.current_page+this.state.limit-1)%this.state.limit
+		})
+		this.setState({
+			name : this.state.appreciations[this.state.current_page].name,
+			image : this.state.appreciations[this.state.current_page].image,
+			quote : this.state.appreciations[this.state.current_page].quote,
+			description:this.state.appreciations[this.state.current_page].description,
+		});
+	}
 
-							<Typography variant="body1" gutterBottom class="appr-quote">{data.quote}
-							</Typography>
-
-							<FormatQuoteRounded id="appr-quotemark-end"/>
-
-							</Box>
-
-							<Box class="appr-lower-part">
-							<Typography variant="body1" gutterBottom>
-							{data.name}<br/>
-
-							</Typography>
-							<Typography variant="body2" gutterBottom>
-							{data.description}<br/>	
-							</Typography>
-							</Box>
-							</Card>
-							</Grid>
-							</Grid>
-    				</Box>
-						)
-					})
-
-				})
-				
-			})
-		}
+	updatePage = (page) => {
+		this.setState({
+			current_page : page,
+		})
+		this.setState({
+			name : this.state.appreciations[this.state.current_page].name,
+			image : this.state.appreciations[this.state.current_page].image,
+			quote : this.state.appreciations[this.state.current_page].quote,
+			description:this.state.appreciations[this.state.current_page].description,
+		});
+	}
 	
 	render(){
 		return(
@@ -79,13 +85,57 @@ export default class Appreciation extends Component{
 			</Typography>
 
 
-			<HorizontalGallery     
-			    tiles= {this.state.appreciations_visual}
-			    elementWidth={1000}
-    fadeDistance={100}
-    minPadding={20}
-    />
+
+			<Grid container spacing={1}>
+			<Grid item xs={12} sm={6} >
+			<Card class="appr-image-cont">
+			<img src={filler} class="appr-image"/>
+			</Card>
+			</Grid >
+			<Grid item xs={12} sm={6}>
+			<Card class="appr-textbox">
+			<Box class="appr-upper-part">
+
+
+
+
+			<Typography variant="body1" gutterBottom class="appr-quote">
+			{this.state.quote}
+			</Typography>
+
+
+
 			</Box>
-		);
+
+			<Box class="appr-lower-part">
+			<Typography variant="body1" gutterBottom>
+			{this.state.name}<br/>
+
+			</Typography>
+			<Typography variant="body2" gutterBottom>
+			{this.state.description}<br/>	
+			</Typography>
+
+			</Box>
+			</Card>
+			</Grid>
+			</Grid>
+			<br/>
+			<Box class="appr-page-nav">
+			<IconButton onClick={this.prevPage} class="appr-back"><ArrowBack/></IconButton>
+			<Pagination
+			class="appr-nav"
+			 count={this.state.limit}
+			  page={this.state.current_page}
+			   onChange={(e,p) => {this.updatePage(p-1)}} 
+			   variant="outlined" 
+			   shape="rounded" 
+			   hideNextButton={true}
+			   hidePrevButton={true}
+			   />
+			<IconButton onClick={this.nextPage} class="appr-forw"><ArrowForward/></IconButton>
+			</Box>
+			</Box>
+			);
 	}
 }
