@@ -8,6 +8,7 @@ import CaseStudies from './CaseStudies/CaseStudies.js';
 import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
 import Appreciation from './Appreciation/Appreciation.js';
+import Testimonials from './Testimonials/Testimonials.js';
 import './Home.css';
 
 function Home() {
@@ -24,7 +25,7 @@ function Home() {
       <Nav.Link className="navlink" href="#work">Our Work</Nav.Link>
       <Nav.Link className="navlink" href="#casestudies">Case Studies</Nav.Link>
       <Nav.Link className="navlink" href="#appreciation">Appreciations</Nav.Link>
-      <Nav.Link className="navlink" href="#">Testimonials</Nav.Link>
+      <Nav.Link className="navlink" href="#Testimonials">Testimonials</Nav.Link>
       <Nav.Link className="navlink" href="#">Our Partners</Nav.Link>
       <Nav.Link className="navlink" href="#">About Us</Nav.Link>
       <Nav.Link className="navlink" href="#team">Our Team</Nav.Link>
@@ -40,6 +41,7 @@ function Home() {
 <News />
 <CaseStudies/>
 <Team />
+<Testimonials />
 <Appreciation />
 <Contact />
 </Box>

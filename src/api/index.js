@@ -12,6 +12,8 @@ export const getOurTeam =
 (pageNum,numOfElements) => api.get(`/our_team/${numOfElements}/${pageNum}`)
 export const getAppreciations = 
 (pageNum,numOfElements) => api.get(`/quotes/${numOfElements}/${pageNum}`)
+export const getTestimonials = 
+(pageNum,numOfElements) => api.get(`/testimonials/${numOfElements}/${pageNum}`)
 // export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
 // export const deleteMovieById = id => api.delete(`/movie/${id}`)
 // export const getMovieById = id => api.get(`/movie/${id}`)
@@ -19,7 +21,8 @@ export const getAppreciations =
 const apis = {
 	getOurWorksByPage,
 	getOurTeam,
-	getAppreciations
+	getAppreciations,
+	getTestimonials,
 }
 
 export default apis
