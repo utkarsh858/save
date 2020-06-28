@@ -14,15 +14,15 @@ export const getAppreciations =
 (pageNum,numOfElements) => api.get(`/quotes/${numOfElements}/${pageNum}`)
 export const getTestimonials = 
 (pageNum,numOfElements) => api.get(`/testimonials/${numOfElements}/${pageNum}`)
-// export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
-// export const deleteMovieById = id => api.delete(`/movie/${id}`)
-// export const getMovieById = id => api.get(`/movie/${id}`)
+export const getCaseStudies = 
+(pageNum,numOfElements) => api.get(`/case_studies/${numOfElements}/${pageNum}`)
 
 const apis = {
 	getOurWorksByPage,
 	getOurTeam,
 	getAppreciations,
 	getTestimonials,
+	getCaseStudies,
 }
 
 export default apis
