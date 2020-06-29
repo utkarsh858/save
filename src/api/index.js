@@ -18,6 +18,8 @@ export const getCaseStudies =
 (pageNum,numOfElements) => api.get(`/case_studies/${numOfElements}/${pageNum}`)
 export const getNews = 
 (pageNum,numOfElements) => api.get(`/news/${numOfElements}/${pageNum}`)
+export const getGalleryImages = 
+(pageNum,numOfElements) => api.get(`/gallery_images/${numOfElements}/${pageNum}`)
 
 const apis = {
 	getOurWorksByPage,
@@ -26,6 +28,7 @@ const apis = {
 	getTestimonials,
 	getCaseStudies,
 	getNews,
+	getGalleryImages,
 }
 
 export default apis

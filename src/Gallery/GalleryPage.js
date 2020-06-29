@@ -1,0 +1,38 @@
+import React,{Component} from 'react';
+import {Box,Grid,Typography,Button,TextField,Avatar,
+} from '@material-ui/core';
+import GridGallery from 'react-grid-gallery';
+import api from "../api"
+
+import './GalleryPage.css';
+
+export default class GalleryPage extends Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			images : [],
+			isLoading : false,
+		}
+	}
+	componentDidMount = async()=>{
+		this.setState({isLoading:true})
+		await api.getGalleryImages(1,20).then(images_list => {
+			this.setState({
+				isLoading:false,
+				images : images_list.data,
+			})	
+
+		})
+	}
+
+	render(){
+		return(
+			<Box id="gallery">
+			<Typography gutterBottom variant="h5" display="block" class="section">
+			GALLERY
+			</Typography>
+			<GridGallery images={this.state.images}/>
+			</Box>
+		)
+	}
+}

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import 'fontsource-roboto';
 import Donate from './Donate/Donate.js';
-import Gallery from './Gallery/Gallery.js';
+import GalleryPage from './Gallery/GalleryPage.js';
 import Home from './Home';
 
 
@@ -19,7 +19,7 @@ function App() {
             <Donate />
           </Route>
           <Route path="/gallery">
-            <Gallery />
+            <GalleryPage />
           </Route>
           <Route path="/">
             <Home />
