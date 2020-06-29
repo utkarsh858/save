@@ -16,6 +16,8 @@ export const getTestimonials =
 (pageNum,numOfElements) => api.get(`/testimonials/${numOfElements}/${pageNum}`)
 export const getCaseStudies = 
 (pageNum,numOfElements) => api.get(`/case_studies/${numOfElements}/${pageNum}`)
+export const getNews = 
+(pageNum,numOfElements) => api.get(`/news/${numOfElements}/${pageNum}`)
 
 const apis = {
 	getOurWorksByPage,
@@ -23,6 +25,7 @@ const apis = {
 	getAppreciations,
 	getTestimonials,
 	getCaseStudies,
+	getNews,
 }
 
 export default apis

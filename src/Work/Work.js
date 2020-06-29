@@ -75,12 +75,16 @@ export default class Work extends Component{
 			this.setState({
 				// our_works : our_works.data.data,
 				isLoading: false,
+				numOfPages : Math.ceil(our_works.data.length/this.state.perPage),
 				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
 				our_works_visual : our_works.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
-					<Card onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
+					<Card 
+					class="card"
+					onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
 					<CardMedia
+					class="card-media"
 					component='img'
 					height='300'
 					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
@@ -93,11 +97,10 @@ export default class Work extends Component{
 					{data.content}
 					</Typography>
 					</CardContent>
-					<CardActions disableSpacing>
+
 					
-					<ArrowForward />
+					<ArrowForward id="card-icon"/>
 					
-					</ CardActions>
 					</Card>
 					</Grid>
 					)
