@@ -1,6 +1,25 @@
 .logo{
 	height: 40vmin;
-	
+	margin-bottom: 20px;
+}
+.logo-text{
+	/*height: 40vmin;*/
+	/*padding: 0px 0px 40px 0px;*/
+	/*margin-bottom: 40px;*/
+	font-family: 'Fredericka the Great', Roboto, sans-serif;
+	font-size: 24vmin;
+	color:#2A9D8F;
+	position: absolute;
+	left:50%;
+	transform: translate(-50%,0);
+	display: inline-block;
+	/*background-color: red;*/
+	text-align: center;
+}
+.logo-text-caption{
+font-size:24px;
+font-family: Roboto, sans-serif;
+
 }
 
 .document{

@@ -15,7 +15,9 @@ function Home() {
   return (
     <Box className="document">
     <img className="logo" src={logo} />
-    <Box component ="span">SAVE </Box>
+    <Box  class="logo-text">SAVE <br/>
+    <Box class="logo-text-caption">Society For Applied Value Education</Box>
+    </Box>
   <Navbar sticky="top" expand="lg" className="menu">
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
