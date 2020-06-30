@@ -1,7 +1,9 @@
-import React from 'react';
+import React,{Component} from 'react';
 import logo from './logo.png';
 import {Box} from '@material-ui/core';
-import {Navbar,Nav} from 'react-bootstrap';
+// import React from 'react';
+import { MDBNavbar, MDBNavbarBrand,
+MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from 'mdbreact';
 import Work from './Work/Work.js';
 import News from './News/News.js';
 import CaseStudies from './CaseStudies/CaseStudies.js';
@@ -11,34 +13,95 @@ import Appreciation from './Appreciation/Appreciation.js';
 import Testimonials from './Testimonials/Testimonials.js';
 import './Home.css';
 
-function Home() {
+export default class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen:false
+    }
+  }
+
+toggleCollapse = () => {
+  this.setState({ isOpen: !this.state.isOpen });
+}
+
+  render(){
+     const navbarItems = [
+      {
+        label: "Item 1",
+        target: "item-1"
+      },
+      {
+        label: "Item 2",
+        target: "item-2"
+      },
+      {
+        label: "Item 3",
+        target: "item-3"
+      },
+      {
+        label: "Item 4",
+        target: "item-4"
+      },
+      {
+        label: "Item 5",
+        target: "item-5"
+      },
+      {
+        label: "Item 6",
+        target: "item-6"
+      }
+    ];
   return (
     <Box className="document">
     <img className="logo" src={logo} />
     <Box  class="logo-text">SAVE <br/>
     <Box class="logo-text-caption">Society For Applied Value Education</Box>
     </Box>
-  <Navbar sticky="top" expand="lg" className="menu">
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="in">
+    <MDBNavbar light expand="md" className="menu">
+    <MDBNavbarToggler onClick={this.toggleCollapse} />
+        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+         <MDBNavbarNav left>
+            
+            <MDBNavItem tag="div" className="menu-item" id="menu-item">
+              <MDBNavLink to="#work">Our Work</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#news">News</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#casestudies">Case Studies</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#testimonials">Testimonials</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#appreciation">Appreciation</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#!">Our Partners</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#about">About Us</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#team">Our Team</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#contact">Contact Us</MDBNavLink>
+            </MDBNavItem>
 
-      <Nav.Link className="navlink" href="#news">News</Nav.Link>
-      <Nav.Link className="navlink" href="#work">Our Work</Nav.Link>
-      <Nav.Link className="navlink" href="#casestudies">Case Studies</Nav.Link>
-      <Nav.Link className="navlink" href="#appreciation">Appreciations</Nav.Link>
-      <Nav.Link className="navlink" href="#Testimonials">Testimonials</Nav.Link>
-      <Nav.Link className="navlink" href="#">Our Partners</Nav.Link>
-      <Nav.Link className="navlink" href="#">About Us</Nav.Link>
-      <Nav.Link className="navlink" href="#team">Our Team</Nav.Link>
-      <Nav.Link className="navlink" href="#">Methodology</Nav.Link>
-      <Nav.Link className="navlink" href="#contact">Contact Us</Nav.Link>
-      <Nav.Link className="navlink right-1" href="/gallery">Gallery</Nav.Link>
-      <Nav.Link className="navlink right-0" href="/donate">Donate</Nav.Link>
-
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+            </MDBNavbarNav>
+           <MDBNavbarNav right>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item right-1" to="/gallery">Gallery</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item right-0" to="/donate"><b>&nbsp;&nbsp;&nbsp;&nbsp;Donate&nbsp;&nbsp;&nbsp;&nbsp;</b></MDBNavLink>
+            </MDBNavItem>
+             </MDBNavbarNav>
+     </MDBCollapse>
+</MDBNavbar>
 <Work />
 <News />
 <CaseStudies/>
@@ -49,5 +112,13 @@ function Home() {
 </Box>
   );
 }
+// <Work />
+// <News />
+// <CaseStudies/>
+// <Team />
+// <Testimonials />
+// <Appreciation />
+// <Contact />
 
-export default Home;
+}
+

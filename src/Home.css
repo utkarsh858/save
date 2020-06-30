@@ -30,27 +30,37 @@ font-family: Roboto, sans-serif;
 
 .menu{
 	border-top: 5px;
-	border-color: brown;
+	border-color: #EF476F;
 	border-top-style: solid;
-	background-color:  #ccffcc !important;
+	/*background-color:  #9BF6FF;*/
+	 background-image: linear-gradient(to bottom right, #9BF6FF , #BDB2FF);
 	top:0;
 	padding: 0px 0px 0px 0px !important;
+	position: sticky;
+	top: 0px;
+}
+.menu-item{
+	color:white !important;
 }
 
+
 .right-1{
-	position: absolute;
-	right:80px;
+	background-color: #EF476F;
+	color : white !important;
+	/*width:100px;*/
+
 }
 
 .right-0{
-	position:absolute;
-	right:0px;
+	background-color: #06D6A0;
+	color : white !important;
+	font-weight: 400;
+}
+
+.menu-item:hover{
+	background-color: #FFC6FF;
+	color:white !important;
+}
+.right-1:hover,.right-0:hover{
 	background-color: black;
-	color:white !important;
 }
-
-.navlink:hover{
-	background-color: brown;
-	color:white !important;
-}
-
