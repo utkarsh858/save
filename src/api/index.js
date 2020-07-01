@@ -10,6 +10,8 @@ export const getOurWorksByPage =
 (pageNum,numOfElements) => api.get(`/our_works/${numOfElements}/${pageNum}`)
 export const getNumOfWorks = 
 (pageNum,numOfElements) => api.get(`/our_works_num`)
+export const getNumOfNews = 
+(pageNum,numOfElements) => api.get(`/news_num`)
 export const getOurTeam = 
 (pageNum,numOfElements) => api.get(`/our_team/${numOfElements}/${pageNum}`)
 export const getAppreciations = 
@@ -32,6 +34,7 @@ const apis = {
 	getNews,
 	getGalleryImages,
 	getNumOfWorks,
+	getNumOfNews,
 }
 
 export default apis

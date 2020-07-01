@@ -1,23 +1,19 @@
-.card {
+.work-card-width{
 maxWidth:375;
+}
+
+.card {
 border-radius:0px !important;
 position: relative;
 border-width: 0px !important;
 z-index: 1;
+background-color: transparent !important;
 }
 
 .card:hover{
 	background-color:  #FFC6FF !important;
 }
 
-.card:active{
-	background-color: brown;
-}
-
-.card-media {
-	/*position: absolute;*/
-	/*top:0px;*/
-}
 .section{
 	border-color: #EF476F;
 	color: #EF476F;

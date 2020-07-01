@@ -1,43 +1,64 @@
 import React,{Component} from 'react';
-import {
-	Box,Grid,Card,CardContent,CardActions,CardMedia,IconButton,Typography,
+import {Box,
+	Button,
+	Grid,
+	Card,
+	CardContent,
+	CardActions,
+	CardMedia,
+	IconButton,
+	Typography,
 	Dialog,
 	DialogActions,
 	DialogContent,
 	DialogContentText,
 	DialogTitle,
-	Button,
+	makeStyles
 } from '@material-ui/core';
+import {
+Modal,
+ModalDialog,
+ModalHeader,
+ModalTitle,
+ModalBody,
+ModalFooter
+} from 'react-bootstrap'
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
-// import {ArrowForward} from '@material-ui/icons'
-import Calendar from 'react-calendar';
 import api from '../api'
+import ReactPaginate from 'react-paginate';
+import GridGallery from 'react-grid-gallery';
 
-import './News.css';
+import './News.css'
 
 export default class News extends Component{
-		constructor(props){
+	constructor(props){
 		super(props)
 		this.state = {
 			news_visual : [],
 			isLoading : false,
-			perPage: 6,
-			currentPage: 1,
-			numOfPages: 16,
+			perPage: 8,
+			current_page: 0,
+			limit: 3,
 			open: false,
 			dialogTitle: '',
+			dialogSubtitle:'',
+			dialogImages :[],
+			dialogCoverImage: '',
 			dialogContent: '',
 			dialogDate: '',
 		}
 	}
-
-handleClickOpen = (title,content,date) => {
+	
+	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
     this.setState({
     open: true,
     dialogTitle : title,
-    dialogDate : date,
+    dialogSubtitle : sub_title,
+    dialogCoverImage : cover_image,
     dialogContent : content,
+    dialogDate : date,
+    dialogImages : images,
     });
   	}
 
@@ -45,30 +66,54 @@ handleClickOpen = (title,content,date) => {
     this.setState({ open: false });
   	}
 
+  	setNumOfPages = async() => {
+  		this.setState({isLoading:true})
+  		await api.getNumOfNews().then(num => {
+  			console.log("Number of Pages");
+  			console.log(num.data/(this.state.perPage));
+  			this.setState({
+				limit : Math.ceil(num.data/(this.state.perPage)),
+  			})
+  			this.updatePage()
+  		})
+  	}
+
 	componentDidMount = async () => {
-		this.updatePage(1)
+		this.setNumOfPages();
+	}
+	nextPage = ()=>{
+		this.setState({
+			current_page : ((this.state.current_page)+1)%(this.state.limit),
+		});
+		this.updatePage();
 	}
 
-	updatePage = async (pageNum) => {
-		this.setState({isLoading:true, currentPage : pageNum})
+	previousPage = ()=>{
+		this.setState({
+			current_page : (this.state.current_page+this.state.limit-1)%(this.state.limit)
+		})
+		this.updatePage();
+	}
+	updatePage = async () => {
+		
 
-		await api.getNews(this.state.currentPage,this.state.perPage).then(news => {	
+		await api.getNews(this.state.current_page+1,this.state.perPage).then(news => {	
 			// our_works = JSON.parse(our_works);
 			// console.log(our_works)
 			this.setState({
 				// our_works : our_works.data.data,
-				numOfPages : Math.ceil(news.data.length/this.state.perPage),
 				isLoading: false,
 				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
 				news_visual : news.data.map((data) => {
 				return (
-					<Grid item xs={12} sm={4}>
+					<Grid item xs={12} sm={3}>
 					<Card 
-					class="card-media"
-					onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
+					class="card news-card-width"
+					onClick={()=>{this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images)}}>
 					<CardMedia
+					class="card-media"
 					component='img'
-					height='300'
+					height={200}
 					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
 					title="Paella dish"
 					/>
@@ -76,7 +121,7 @@ handleClickOpen = (title,content,date) => {
 					<Typography variant="h6" gutterBottom>{data.title}</Typography>
 					 <br />
 					 <Typography variant="body1" gutterBottom>
-					{data.content}
+					{data.sub_title}
 					</Typography>
 					</CardContent>
 
@@ -93,64 +138,75 @@ handleClickOpen = (title,content,date) => {
 	}
 
 
+
 	render(){
 		return (
-			<Box id="news" class="colour">
-			 <Typography gutterBottom variant="h5" component="h2" class="section">
-            NEWS
-          </Typography>
-          <Grid container spacing={1}>
-          <Grid item xs={12} sm={12}>
-          <Grid container spacing={9}>
+			<Box id="news">
+			<Typography gutterBottom variant="h5" display="block" class="section">
+			NEWS
+			</Typography><br/>
+		
+			<Grid container spacing={9} class="news-bg">
 			{this.state.news_visual}
 			</Grid>
 			<br/>
 
-			</Grid>
-          
-			</Grid>
-			<Box class="case-page-nav">
-			<IconButton onClick={this.prevPage} class="case-back"><ArrowBack/></IconButton>
-			<Pagination 
-			class="case-nav"
-			count={this.state.numOfPages}
-			page={this.state.currentPage}
-			onChange={(e,p) => {this.updatePage(p)}}
-			variant="outlined"
-			shape="rounded"
-			/>
-			<IconButton onClick={this.nextPage} class="case-forw"><ArrowForward/></IconButton>
-			</Box>
+			<ReactPaginate
+			previousLabel={"<"}
+            nextLabel={">"}
+            breakLabel={"..."}
+            pageCount={this.state.limit}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={(e) => { console.log(e); this.state.current_page=e.selected; this.updatePage();}}
 
-
+			containerClassName={"pagination"}
+            pageClassName={"pagination-elem"}
+            pageLinkClassName={'pagination-elem-link'}
+            activeClassName={"pagination-active"}
+            activeLinkClassName={"pagination-active-link"}
+            previousClassName={'pagination-prev'}
+            nextClassName={'pagination-next'}
+            />
+           
 			<Dialog
+          fullScreen
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          scroll="body"
+          class="dialog-box"
         	>
-          <DialogTitle id="alert-dialog-title">{this.state.dialogTitle}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
+
+          <DialogTitle class="dialog-title" id="dialog-title">
+          {this.state.dialogTitle}
+
+
+          </DialogTitle>
+
+
+          <DialogContent class="dialog-content">
+          <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
+            <DialogContentText 
+            class="dialog-content-text"
+            id="alert-dialog-description">
+
+
+            <img src={this.state.dialogCoverImage} class="dialog-image"/>
+            
             {this.state.dialogContent}
-            {this.state.date}
+
             </DialogContentText>
+
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Disagree
-            </Button>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Agree
+          <DialogActions class="dialog-actions">
+            <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
+              Close
             </Button>
           </DialogActions>
         </Dialog>
-			</Box>
-			);
+			</ Box>
+			)
 		}
-		// Unpublished Calender item
-		// <Grid item xs={12} sm={6}>
-
-		// 	<Calendar />
-		// 	</Grid>
 	}

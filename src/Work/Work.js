@@ -108,7 +108,7 @@ export default class Work extends Component{
 				return (
 					<Grid item xs={12} sm={4}>
 					<Card 
-					class="card"
+					class="card work-card-width"
 					onClick={()=>{this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images)}}>
 					<CardMedia
 					class="card-media"
