@@ -27,13 +27,13 @@
 	height:30vw;
 	text-align: center;
 
-	color:brown;
+	color:#EF476F;
 }
 
 .appr-upper-part{
 	font-size:2vw;
 	border-bottom-width:2px;
-	border-bottom-color:brown;
+	border-bottom-color:#EF476F;
 
 }
 
@@ -46,7 +46,7 @@
 }
 
 .appr-back , .appr-forw{
-	color:brown;
+	color:#EF476F;
 	background-color: transparent;
 	border-width: 0px;
 	display: inline-block;
@@ -56,10 +56,10 @@
 
 }
 .MuiPagination-ul{
-	color: brown;
+	color: #EF476F;
 }
 .appr-nav{
-	color:brown;
+	color:#EF476F;
 	display: inline-block;
 	/*margin:auto;*/
 }
@@ -69,10 +69,8 @@
 #appr-quotemark-start{
 
 /*vertical-align: super;*/
-position: absolute;
-top:0px;
-left:0px;
-color: brown;
+
+color: #EF476F;
 font-size:5vw;
 transform: scale(-1, 1);
 }
@@ -80,10 +78,54 @@ transform: scale(-1, 1);
 #appr-quotemark-end{
 
 /*vertical-align: sub;*/
-position: absolute;
-bottom: 0px;
-right:0px;
-color: brown;
+
+color: #EF476F;
 font-size:5vw;
 }
 
+.appr-pagination{
+	display: inline-block;
+	height:20px;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+.appr-pagination-elem{
+background-color: #9BF6FF;
+width:10px;
+height:10px;
+text-align: center;
+color: transparent;
+border-radius: 50%;
+display: inline-block;
+position: relative;
+top: 50%;
+transform: translate(0,-50%);
+margin: 0px 10px 0px 10px;
+}
+.appr-pagination-elem-link{
+width:10px;
+height:10px;
+border-radius: 50%;
+display: inline-block;
+}
+.appr-pagination-active{
+background-color: #EF476F;
+box-shadow:inset 0 0 2px 1px white;
+width:20px;
+height:20px;
+}
+.appr-pagination-active-link{
+width:20px;
+height:20px;
+border-radius: 50%;
+display: inline-block;
+}
+.appr-pagination-prev{
+display: none;
+
+}
+.appr-pagination-next{
+display: none;
+
+}
