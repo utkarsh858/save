@@ -3,6 +3,7 @@ maxWidth:375;
 }
 
 .card {
+	cursor: pointer;
 border-radius:0px !important;
 position: relative;
 border-width: 0px !important;
@@ -46,11 +47,13 @@ background-color: transparent !important;
 	/*background-color: red;*/
 	color: #EF476F;
 	font-size: 1.5em;
-	z-index: 1;
+	z-index: 30;
 	position: absolute;
 	left:50%;
-	bottom: -30px;
 	transform: translate(-50%,0);
+}
+.pag-correct{
+	bottom: -30px;
 }
 
 .pagination-elem{

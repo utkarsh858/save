@@ -160,7 +160,7 @@ export default class News extends Component{
             pageRangeDisplayed={5}
             onPageChange={(e) => { console.log(e); this.state.current_page=e.selected; this.updatePage();}}
 
-			containerClassName={"pagination"}
+			containerClassName={"pagination pag-correct"}
             pageClassName={"pagination-elem"}
             pageLinkClassName={'pagination-elem-link'}
             activeClassName={"pagination-active"}

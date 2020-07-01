@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
+import ReactPaginate from 'react-paginate';
 import filler from "./filler.jpg";
 import './CaseStudies.css';
 import api from "../api"
@@ -40,43 +41,12 @@ export default class CaseStudies extends Component{
 				limit : appreciation_list.data.length,
 			})	
 
-			this.setState({
-				name : this.state.appreciations[this.state.current_page].name,
-				image : this.state.appreciations[this.state.current_page].image,
-				description:this.state.appreciations[this.state.current_page].description,
-				content:this.state.appreciations[this.state.current_page].content,
-			});
+			this.updatePage();
 		})
 	}
 
-	nextPage = ()=>{
-		this.setState({
-			current_page : (this.state.current_page+1)%this.state.limit
-		});
-			this.setState({
-				name : this.state.appreciations[this.state.current_page].name,
-				image : this.state.appreciations[this.state.current_page].image,
-				description:this.state.appreciations[this.state.current_page].description,
-				content:this.state.appreciations[this.state.current_page].content,
-			});
-	}
+	updatePage = () => {
 
-	previousPage = ()=>{
-		this.setState({
-			current_page : (this.state.current_page+this.state.limit-1)%this.state.limit
-		})
-			this.setState({
-				name : this.state.appreciations[this.state.current_page].name,
-				image : this.state.appreciations[this.state.current_page].image,
-				description:this.state.appreciations[this.state.current_page].description,
-				content:this.state.appreciations[this.state.current_page].content,
-			});
-	}
-
-	updatePage = (page) => {
-		this.setState({
-			current_page : page,
-		})
 			this.setState({
 				name : this.state.appreciations[this.state.current_page].name,
 				image : this.state.appreciations[this.state.current_page].image,
@@ -97,7 +67,7 @@ export default class CaseStudies extends Component{
 
 	render(){
 		return(
-			<Box id="testimonials">
+			<Box id="casestudies">
 			
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			CASE STUDIES
@@ -143,41 +113,62 @@ export default class CaseStudies extends Component{
 			</Grid >
 			</Grid>
 			<br/>
-			<Box class="case-page-nav">
-			<IconButton onClick={this.prevPage} class="case-back"><ArrowBack/></IconButton>
-			<Pagination
-			class="case-nav"
-			 count={this.state.limit}
-			  page={this.state.current_page}
-			   onChange={(e,p) => {this.updatePage(p-1)}} 
-			   variant="outlined" 
-			   shape="rounded" 
-			   hideNextButton={true}
-			   hidePrevButton={true}
-			   />
-			<IconButton onClick={this.nextPage} class="case-forw"><ArrowForward/></IconButton>
-			</Box>
+
+			<ReactPaginate
+			previousLabel={"<"}
+            nextLabel={">"}
+            breakLabel={"..."}
+            pageCount={this.state.limit}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={(e) => { console.log(e); 		this.setState({
+			current_page : e.selected,
+		}); this.updatePage();}}
+
+			containerClassName={"pagination"}
+            pageClassName={"pagination-elem"}
+            pageLinkClassName={'pagination-elem-link'}
+            activeClassName={"pagination-active"}
+            activeLinkClassName={"pagination-active-link"}
+            previousClassName={'pagination-prev'}
+            nextClassName={'pagination-next'}
+            />
+
 			<Dialog
+          fullScreen
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          scroll="body"
+          class="dialog-box"
         	>
-          <DialogTitle id="alert-dialog-title">{this.state.dialogTitle}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-            {this.state.name}<br/>
-            {this.state.description}<br/>
-            {this.state.content}<br/>
+
+          <DialogTitle class="dialog-title" id="dialog-title">
+          Meet {this.state.name}
+
+
+          </DialogTitle>
+
+
+          <DialogContent class="dialog-content">
+          <Box class="dialog-subtitle">{this.state.description}</Box>
+            <DialogContentText 
+            class="dialog-content-text"
+            id="alert-dialog-description">
+
+
+            <img src={this.state.image} class="dialog-image"/>
+            
+            {this.state.content}
+
 
             </DialogContentText>
+
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Disagree
-            </Button>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Agree
+          <DialogActions class="dialog-actions">
+            <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
+              Close
             </Button>
           </DialogActions>
         </Dialog>

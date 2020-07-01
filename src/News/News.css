@@ -12,6 +12,6 @@ width:200px;
 /*,#BDB2FF*/
 .news-bg{
 
-	background-image: linear-gradient(to bottom, #9BF6FF ,white);
+	background-image: linear-gradient(to bottom left, #9BF6FF ,white,white);
 	min-height: 700px;
 }
