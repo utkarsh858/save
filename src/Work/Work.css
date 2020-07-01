@@ -2,12 +2,12 @@
 maxWidth:375;
 border-radius:0px !important;
 position: relative;
-border-width: 0px;
+border-width: 0px !important;
 z-index: 1;
 }
 
 .card:hover{
-	background-color:  #ccffcc !important;
+	background-color:  #FFC6FF !important;
 }
 
 .card:active{
@@ -19,23 +19,122 @@ z-index: 1;
 	/*top:0px;*/
 }
 .section{
-	border-color: brown;
-	border-width: 3px;
+	border-color: #EF476F;
+	color: #EF476F;
+	border-width: 2px;
 	border-left-style: solid;
 	padding-left: 10px;
+	height: 2.3em;
+	padding-top: 10px;
+	font-size: 1.3em;
 }
 
 #card-icon{
-	color: brown;
+	color: #EF476F;
 	font-size:3vw;
 	position: relative;
 	left:90%;
+	transform: scale(0.7);
 }
 
 #work{
-	margin-top: 40px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	min-height: 1200px;
+	position: relative;
+	/*background-color: red;*/
 }
 
-CardActions{
+.pagination{
+	display: inline-block;
+	/*background-color: red;*/
+	color: #EF476F;
+	font-size: 1.5em;
+	z-index: 1;
+	position: absolute;
+	left:50%;
+	bottom: -30px;
+	transform: translate(-50%,0);
+}
 
+.pagination-elem{
+	margin-left: 5px;
+	margin-right: 5px;
+	width:30px;
+	text-align: center;
+}
+.pagination-elem-link{
+	display: block;
+
+}
+.pagination-active{
+	background-color: #EF476F;
+	color:white;
+}
+
+.pagination-prev{
+margin-right: 20px;
+}
+
+.pagination-next{
+margin-left: 20px;
+}
+
+/*Dialog styles*/
+
+.dialog-box{
+	/*background: red;*/
+}
+.dialog-title{
+background-color: #EF476F;
+/*height:2.5em;
+font-size:3em;*/
+padding: 10px 20px 10px 20px;
+color:white;
+}
+
+.icon-button{
+
+}
+
+.dialog-subtitle{
+font-size: 1.5em;
+padding: 10px 20px 10px 20px;
+display: inline-block;
+}
+.dialog-image{
+height:40%;
+width:40%;
+float:right;
+}
+/*, #9BF6FF, #BDB2FF*/
+.dialog-content{
+	 background-image: linear-gradient(to bottom right,white,#9BF6FF );
+
+	/*background-color: green;*/
+
+}
+.dialog-content-text{
+padding: 10px 20px 10px 20px;
+margin-bottom: 0px;
+}
+.dialog-actions{
+
+
+}
+
+.dialog-close-button{
+float:right;
+/*border-color: #EF476F;*/
+border-width: 0px;
+height: 50px;
+width:100%;
+background-color: #BDB2FF;
+color:black;
+font-size:1.5em;
+}
+
+.dialog-close-button:hover{
+
+	background-color: #FFC6FF;
 }

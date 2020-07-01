@@ -15,23 +15,21 @@ import {Box,
 	DialogTitle,
 	makeStyles
 } from '@material-ui/core';
+import {
+Modal,
+ModalDialog,
+ModalHeader,
+ModalTitle,
+ModalBody,
+ModalFooter
+} from 'react-bootstrap'
 import {Pagination} from '@material-ui/lab'; 
-import {ArrowForward} from '@material-ui/icons'
+import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
 import api from '../api'
 import ReactPaginate from 'react-paginate';
-import './Work.css'
+import GridGallery from 'react-grid-gallery';
 
-// const useStyles = makeStyles({
-// 	root: {
-// 	  maxWidth:375,
-// 	},
-// 	media: {
-// 		height: 300,
-// 		// paddingTop: '30%', // 16:9,
-// 		marginTop:'30',
-// 		marginLeft:'20',
-// 	  },
-//   });
+import './Work.css'
 
 export default class Work extends Component{
 	constructor(props){
@@ -40,21 +38,27 @@ export default class Work extends Component{
 			our_works_visual : [],
 			isLoading : false,
 			perPage: 6,
-			currentPage: 1,
-			numOfPages: 16,
+			current_page: 0,
+			limit: 3,
 			open: false,
 			dialogTitle: '',
+			dialogSubtitle:'',
+			dialogImages :[],
+			dialogCoverImage: '',
 			dialogContent: '',
 			dialogDate: '',
 		}
 	}
 	
-	handleClickOpen = (title,content,date) => {
+	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
     this.setState({
     open: true,
     dialogTitle : title,
-    dialogDate : date,
+    dialogSubtitle : sub_title,
+    dialogCoverImage : cover_image,
     dialogContent : content,
+    dialogDate : date,
+    dialogImages : images,
     });
   	}
 
@@ -62,27 +66,50 @@ export default class Work extends Component{
     this.setState({ open: false });
   	}
 
+  	setNumofPages = async() => {
+  		this.setState({isLoading:true})
+  		await api.getNumOfWorks().then(num => {
+  			console.log("Number of Pages");
+  			console.log(num.data/(this.state.perPage));
+  			this.setState({
+				limit : Math.ceil(num.data/(this.state.perPage)),
+  			})
+  			this.updatePage()
+  		})
+  	}
+
 	componentDidMount = async () => {
-		this.updatePage(1)
+		this.setNumofPages();
+	}
+	nextPage = ()=>{
+		this.setState({
+			current_page : ((this.state.current_page)+1)%(this.state.limit),
+		});
+		this.updatePage();
 	}
 
-	updatePage = async (pageNum) => {
-		this.setState({isLoading:true, currentPage : pageNum})
+	previousPage = ()=>{
+		this.setState({
+			current_page : (this.state.current_page+this.state.limit-1)%(this.state.limit)
+		})
+		this.updatePage();
+	}
+	updatePage = async () => {
+		
 
-		await api.getOurWorksByPage(this.state.currentPage,this.state.perPage).then(our_works => {	
+		await api.getOurWorksByPage(this.state.current_page+1,this.state.perPage).then(our_works => {	
 			// our_works = JSON.parse(our_works);
 			// console.log(our_works)
 			this.setState({
 				// our_works : our_works.data.data,
 				isLoading: false,
-				numOfPages : Math.ceil(our_works.data.length/this.state.perPage),
 				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
 				our_works_visual : our_works.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
 					<Card 
 					class="card"
-					onClick={()=>{this.handleClickOpen(data.title,data.content,'')}}>
+					onClick={()=>{this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images)}}>
 					<CardMedia
 					class="card-media"
 					component='img'
@@ -94,7 +121,7 @@ export default class Work extends Component{
 					<Typography variant="h6" gutterBottom>{data.title}</Typography>
 					 <br />
 					 <Typography variant="body1" gutterBottom>
-					{data.content}
+					{data.sub_title}
 					</Typography>
 					</CardContent>
 
@@ -122,38 +149,60 @@ export default class Work extends Component{
 			{this.state.our_works_visual}
 			</Grid>
 			<br/>
+
 			<ReactPaginate
-			previousLabel={"prev"}
-            nextLabel={"next"}
+			previousLabel={"<"}
+            nextLabel={">"}
             breakLabel={"..."}
-            pageCount={this.state.numOfPages}
+            pageCount={this.state.limit}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
-            onPageChange={(e) => { console.log(e); this.updatePage(e.selected+1)}}
+            onPageChange={(e) => { console.log(e); this.state.current_page=e.selected; this.updatePage();}}
+
 			containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
+            pageClassName={"pagination-elem"}
+            pageLinkClassName={'pagination-elem-link'}
+            activeClassName={"pagination-active"}
+            activeLinkClassName={"pagination-active-link"}
+            previousClassName={'pagination-prev'}
+            nextClassName={'pagination-next'}
             />
 
 			<Dialog
+          fullScreen
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          scroll="body"
+          class="dialog-box"
         	>
-          <DialogTitle id="alert-dialog-title">{this.state.dialogTitle}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
+
+          <DialogTitle class="dialog-title" id="dialog-title">
+          {this.state.dialogTitle}
+
+
+          </DialogTitle>
+
+
+          <DialogContent class="dialog-content">
+          <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
+            <DialogContentText 
+            class="dialog-content-text"
+            id="alert-dialog-description">
+
+
+            <img src={this.state.dialogCoverImage} class="dialog-image"/>
+            
             {this.state.dialogContent}
-            {this.state.date}
+
+
             </DialogContentText>
+
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Disagree
-            </Button>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Agree
+          <DialogActions class="dialog-actions">
+            <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
+              Close
             </Button>
           </DialogActions>
         </Dialog>

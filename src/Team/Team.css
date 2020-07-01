@@ -51,13 +51,6 @@
 	margin:auto;
 }
 
-.section{
-	border-color: brown;
-	border-width: 3px;
-	border-left-style: solid;
-	padding-left: 10px;
-}
-
 .team-name{
 	font-size:2vw;
 }
