@@ -3,6 +3,7 @@ import {Box,Grid,Card,CardContent,CardMedia,IconButton,Typography
 } from '@material-ui/core';
 import {Pagination} from '@material-ui/lab'; 
 import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
+import ReactPaginate from 'react-paginate';
 import filler from "./filler.jpg";
 import './Testimonials.css';
 import api from "../api"
@@ -31,43 +32,13 @@ export default class Testimonials extends Component{
 				limit : appreciation_list.data.length,
 			})	
 
-			this.setState({
-				name : this.state.appreciations[this.state.current_page].name,
-				image : this.state.appreciations[this.state.current_page].image,
-				quote : this.state.appreciations[this.state.current_page].quote,
-				description:this.state.appreciations[this.state.current_page].description,
-			});
+			this.updatePage();
 		})
 	}
 
-	nextPage = ()=>{
-		this.setState({
-			current_page : (this.state.current_page+1)%this.state.limit
-		});
-		this.setState({
-			name : this.state.appreciations[this.state.current_page].name,
-			image : this.state.appreciations[this.state.current_page].image,
-			quote : this.state.appreciations[this.state.current_page].quote,
-			description:this.state.appreciations[this.state.current_page].description,
-		});
-	}
 
-	previousPage = ()=>{
-		this.setState({
-			current_page : (this.state.current_page+this.state.limit-1)%this.state.limit
-		})
-		this.setState({
-			name : this.state.appreciations[this.state.current_page].name,
-			image : this.state.appreciations[this.state.current_page].image,
-			quote : this.state.appreciations[this.state.current_page].quote,
-			description:this.state.appreciations[this.state.current_page].description,
-		});
-	}
+	updatePage = () => {
 
-	updatePage = (page) => {
-		this.setState({
-			current_page : page,
-		})
 		this.setState({
 			name : this.state.appreciations[this.state.current_page].name,
 			image : this.state.appreciations[this.state.current_page].image,
@@ -78,7 +49,7 @@ export default class Testimonials extends Component{
 	
 	render(){
 		return(
-			<Box id="testimonials">
+			<Box id="appreciation">
 			
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			TESTIMONIALS
@@ -87,7 +58,7 @@ export default class Testimonials extends Component{
 
 
 			<Grid container spacing={1}>
-
+			
 			<Grid item xs={12} sm={6}>
 			<Card class="appr-textbox">
 			<Box class="appr-upper-part">
@@ -96,7 +67,9 @@ export default class Testimonials extends Component{
 
 
 			<Typography variant="body1" gutterBottom class="appr-quote">
+			<FormatQuoteRounded id="appr-quotemark-start"/>
 			{this.state.quote}
+			<FormatQuoteRounded id="appr-quotemark-end"/>
 			</Typography>
 
 
@@ -122,20 +95,26 @@ export default class Testimonials extends Component{
 			</Grid >
 			</Grid>
 			<br/>
-			<Box class="appr-page-nav">
-			<IconButton onClick={this.prevPage} class="appr-back"><ArrowBack/></IconButton>
-			<Pagination
-			class="appr-nav"
-			 count={this.state.limit}
-			  page={this.state.current_page}
-			   onChange={(e,p) => {this.updatePage(p-1)}} 
-			   variant="outlined" 
-			   shape="rounded" 
-			   hideNextButton={true}
-			   hidePrevButton={true}
-			   />
-			<IconButton onClick={this.nextPage} class="appr-forw"><ArrowForward/></IconButton>
-			</Box>
+			<ReactPaginate
+			previousLabel={"<"}
+            nextLabel={">"}
+            breakLabel={"..."}
+            pageCount={this.state.limit}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={(e) => { console.log(e); 		this.setState({
+			current_page : e.selected,
+		}); this.updatePage();}}
+
+			containerClassName={"appr-pagination"}
+            pageClassName={"appr-pagination-elem"}
+            pageLinkClassName={'appr-pagination-elem-link'}
+            activeClassName={"appr-pagination-active"}
+            activeLinkClassName={"appr-pagination-active-link"}
+            previousClassName={'appr-pagination-prev'}
+            nextClassName={'appr-pagination-next'}
+            />
+
 			</Box>
 			);
 	}
