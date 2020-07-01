@@ -43,18 +43,33 @@
 	color:rgba(0,0,0,1);
 }
 
-
-
-.bg{
-	background-color: wheat;
-	width:70vw !important;
-	margin:auto;
-}
-
 .team-name{
-	font-size:2vw;
+	font-size:1.5vw;
 }
 
 .team-desc{
 	font-size: 1vw;
 }
+
+@media screen and (max-width: 600px) {
+	.tile-left,.tile-right{
+		filter:grayscale(0%);
+	}
+	.left,.right{
+		color: rgba(0,0,0,1);
+	}
+	.team-name{
+	font-size:1.3em;
+}
+
+.team-desc{
+	font-size: 0.7em;
+}
+}
+
+.bg{
+	background-color: #9BF6FF;
+	width:70vw !important;
+	margin:auto;
+}
+
