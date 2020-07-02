@@ -11,9 +11,26 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import HomeIcon from '@material-ui/icons/Home'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import CallIcon from '@material-ui/icons/Call'
+import api from '../api'
+
 import './Contact.css';
 
 export default class Contact extends Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			name:"",
+			email:"",
+			query:"",
+			confirmMsg:"",
+		}
+	}
+	submit = async()=>{
+	await api.submitQueryForm(this.state);
+	this.setState({
+		confirmMsg:"Thank You. We will reply as soon as possible",
+	})
+	}
 
 	render(){
 		return(
@@ -27,13 +44,35 @@ export default class Contact extends Component{
 			We'd love to hear from You.
 			</Typography>
 				<form class="form">
-				<TextField id="name" label="Name" variant="outlined" fullWidth/>
+				<TextField id="name" label="Name" variant="outlined" fullWidth
+
+				onChange = {(event) => {
+				this.setState({name: event.target.value});
+				}}
+
+				/>
 				<br/><br/>
-				<TextField id="email" label="E-mail" variant="outlined" fullWidth/>
+				<TextField id="email" label="E-mail" variant="outlined" fullWidth
+				
+				onChange = {(event) => {
+				this.setState({email: event.target.value});
+				}}
+
+				/>
 				<br/><br/>
-				<TextField id="query" label="Query" variant="outlined" fullWidth multiline/>
-				<Button />
+				<TextField id="query" label="Query" variant="outlined" fullWidth multiline
+
+				onChange = {(event) => {
+				this.setState({query: event.target.value});
+				}}
+
+				/>
+            <Button onClick={this.submit} class="cont-button">
+              Submit
+            </Button>
+            {this.state.confirmMsg}
 				</form>
+            
 			</Grid>
 			<Grid item xs={12} sm={6} class="cont-right">
 			<img className="image" src ={filler}/>

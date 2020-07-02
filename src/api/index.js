@@ -6,6 +6,8 @@ const api = axios.create({
 
 // export const insertMovie = payload => api.post(`/movie`, payload)
 // export const getAllOurWorks = () => api.get(`/our_works`)
+export const submitQueryForm = 
+(data) => api.post('/query',data)
 export const getOurWorksByPage = 
 (pageNum,numOfElements) => api.get(`/our_works/${numOfElements}/${pageNum}`)
 export const getNumOfWorks = 
@@ -26,6 +28,7 @@ export const getGalleryImages =
 (pageNum,numOfElements) => api.get(`/gallery_images/${numOfElements}/${pageNum}`)
 
 const apis = {
+	submitQueryForm,
 	getOurWorksByPage,
 	getOurTeam,
 	getAppreciations,

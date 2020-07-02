@@ -87,3 +87,16 @@
 #seeuson{
 	font-size: 2em;
 }
+
+.cont-button{
+	color: white;
+	background-color: #EF476F;
+	margin-top: 20px;
+	border-width: 0px;
+	padding: 10px 30px 10px 30px;
+}
+
+.cont-button:active{
+	color: black;
+background-color: white;
+}
