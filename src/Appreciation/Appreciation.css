@@ -26,8 +26,8 @@
 	/*background-color: yellow;*/
 	height:30vw;
 	text-align: center;
-
-	color:#EF476F;
+	color: black;
+	/*color:#EF476F;*/
 }
 
 .appr-upper-part{
@@ -36,7 +36,9 @@
 	border-bottom-color:#EF476F;
 
 }
-
+.appr-lower-part{
+	color: gray;
+}
 .appr-page-nav{
 	/*background-color: green;*/
 	display: inline-block;

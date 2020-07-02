@@ -1,18 +1,33 @@
 .logo{
 	height: 40vmin;
 	margin-bottom: 20px;
+position: absolute;
+top:0px;
+left:0px;
+	/*display: block;*/
+	/*display: inline;*/
+	/*position: relative;*/
+	/*bottom:-40vmin;*/
+	/*float:left;*/
+}
+@media screen and (max-width: 600px) {
+.logo{
+	display: none;
+}
 }
 .logo-text{
+	/*width:50%;*/
 	/*height: 40vmin;*/
 	/*padding: 0px 0px 40px 0px;*/
 	/*margin-bottom: 40px;*/
+	/*margin-top: 40px;*/
 	font-family: 'Fredericka the Great', Roboto, sans-serif;
 	font-size: 24vmin;
-	color:#EF476F;
-	position: absolute;
-	left:50%;
-	transform: translate(-50%,0);
-	display: inline-block;
+	/*color:#EF476F;*/
+
+	display: block;
+	/*height:300px;*/
+	/*background-color: red;*/
 	/*background-color: red;*/
 	text-align: center;
 }
@@ -35,10 +50,11 @@ font-family: Montserrat, sans-serif;
 	border-top-style: solid;
 	/*background-color:  #9BF6FF;*/
 	 background-image: linear-gradient(to bottom right, #9BF6FF , #BDB2FF);
-	top:0;
+	 display: block;
 	padding: 0px 0px 0px 0px !important;
-	position: sticky;
-	top: 0px;
+	position: sticky !important;
+	top:0;
+	z-index: 100;
 }
 .menu-item{
 	color:white !important;

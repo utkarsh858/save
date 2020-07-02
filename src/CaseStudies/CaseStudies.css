@@ -33,7 +33,8 @@
 	height:300px;
 	text-align: left;
 	display: flex;
-	color:#EF476F;
+	/*color:#EF476F;*/
+	color:black;
 	display: block;
 	cursor: pointer;
 }
