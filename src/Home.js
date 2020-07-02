@@ -11,6 +11,8 @@ import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
 import Appreciation from './Appreciation/Appreciation.js';
 import Testimonials from './Testimonials/Testimonials.js';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 import './Home.css';
 
 export default class Home extends Component {
@@ -23,6 +25,14 @@ export default class Home extends Component {
 
 toggleCollapse = () => {
   this.setState({ isOpen: !this.state.isOpen });
+}
+
+scrollTo = (target) =>{
+      scroller.scrollTo(target, {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
 }
 
   render(){
@@ -38,31 +48,31 @@ toggleCollapse = () => {
          <MDBNavbarNav left>
             
             <MDBNavItem tag="div" className="menu-item" id="menu-item">
-              <MDBNavLink to="#work">Our Work</MDBNavLink>
+              <MDBNavLink to="#work" onClick={()=>{this.scrollTo('work')}}>Our Work</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#news">News</MDBNavLink>
+              <MDBNavLink to="#news" onClick={()=>{this.scrollTo('news')}}>News</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#casestudies">Case Studies</MDBNavLink>
+              <MDBNavLink to="#casestudies" onClick={()=>{this.scrollTo('casestudies')}}>Case Studies</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#testimonials">Testimonials</MDBNavLink>
+              <MDBNavLink to="#testimonials" onClick={()=>{this.scrollTo('testimonials')}}>Testimonials</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#appreciation">Appreciation</MDBNavLink>
+              <MDBNavLink to="#appreciation" onClick={()=>{this.scrollTo('appreciation')}}>Appreciation</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#!">Our Partners</MDBNavLink>
+              <MDBNavLink to="#!" onClick={()=>{this.scrollTo('our_partners')}}>Our Partners</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#about">About Us</MDBNavLink>
+              <MDBNavLink to="#about" onClick={()=>{this.scrollTo('about_us')}}>About Us</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#team">Our Team</MDBNavLink>
+              <MDBNavLink to="#team" onClick={()=>{this.scrollTo('team')}}>Our Team</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#contact">Contact Us</MDBNavLink>
+              <MDBNavLink to="#contact" onClick={()=>{this.scrollTo('contact')}}>Contact Us</MDBNavLink>
             </MDBNavItem>
 
             </MDBNavbarNav>
@@ -76,13 +86,13 @@ toggleCollapse = () => {
              </MDBNavbarNav>
      </MDBCollapse>
 </MDBNavbar>
-<Work />
-<News />
-<CaseStudies/>
-<Team />
-<Testimonials />
-<Appreciation />
-<Contact />
+<Work name="work"/>
+<News name="news"/>
+<CaseStudies name="casestudies"/>
+<Team name="team"/>
+<Testimonials name="testimonials"/>
+<Appreciation name="appreciation"/>
+<Contact name="contact"/>
 </Box>
   );
 }
