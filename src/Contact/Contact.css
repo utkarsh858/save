@@ -1,20 +1,28 @@
 .image{
-	height:30vw;
+	height:400px;
+	margin:auto;
+	display: block;
+}
+#contact{
+	background-image: linear-gradient(to bottom right,white,white, #BDB2FF);
 }
 
-
-.right{
+.cont-right{
 	position: relative;
+	/*background-color: red;*/
+	height: 600px;
+	margin-left: 40px;
+	width:500px;
 }
 
 .details{
 	position: absolute;
 	bottom:0px;
+	background-color: #EF476F;
+	width:100%;
+	padding: 10px 0px 10px 20px;
 }
 
-#contact{
-	margin-top: 40px;
-}
 
 .impression{
 	font-family: sans-serif;
@@ -37,12 +45,12 @@
 }
 
 .contact{
-	color: brown;
+	color: white;
 }
 
 .social{
-	background-color: #ccffcc;
-	color: brown;
+	background-color:#9BF6FF;
+	color:#EF476F;
 	border-radius: 50%;
 	height: 15vw;
 	width:15vw;
@@ -51,11 +59,12 @@
 	position: relative;
 	display: inline-block;
 	margin-left: 5px;
+	cursor: pointer;
 }
 
 .social:hover{
-	background-color: brown;
-	color:#ccffcc;
+	background-color: #EF476F;
+	color:#9BF6FF;
 }
 .center{
 	text-align:center;

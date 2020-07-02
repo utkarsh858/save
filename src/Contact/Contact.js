@@ -35,7 +35,7 @@ export default class Contact extends Component{
 				<Button />
 				</form>
 			</Grid>
-			<Grid item xs={12} sm={6} class="right">
+			<Grid item xs={12} sm={6} class="cont-right">
 			<img className="image" src ={filler}/>
 			<Typography class="details">
 			<div class="contact">
