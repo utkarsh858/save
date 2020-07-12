@@ -8,7 +8,7 @@ import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Fredericka the Great:300,400,700','Montserrat','sans-serif']
+    families: ['Love Ya Like A Sister','Montserrat','sans-serif']
   }
 });
 

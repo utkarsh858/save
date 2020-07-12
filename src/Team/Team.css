@@ -30,6 +30,13 @@
 	padding-top: 8%;
 	color : rgba(0,0,0,0);
 }
+.cell{
+
+}
+.cell:hover{
+cursor: pointer;
+}
+
 .cell:hover >.tile-left{
 	filter: grayscale(0%);
 }
@@ -68,7 +75,6 @@
 }
 
 .bg{
-	background-color: #9BF6FF;
 	width:70vw !important;
 	margin:auto;
 	margin-bottom: 40px;

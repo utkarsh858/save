@@ -9,6 +9,8 @@ import News from './News/News.js';
 import CaseStudies from './CaseStudies/CaseStudies.js';
 import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
+import SocietalImpact from './SocietalImpact/SocietalImpact.js';
+import WhoAreWe from './WhoAreWe/WhoAreWe.js';
 import Appreciation from './Appreciation/Appreciation.js';
 import Testimonials from './Testimonials/Testimonials.js';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
@@ -16,6 +18,10 @@ import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, 
 import './Home.css';
 
 export default class Home extends Component {
+  componentDidMount(){
+    document.title="SAVE";
+  }
+
   constructor(props){
     super(props)
     this.state = {
@@ -48,35 +54,36 @@ scrollTo = (target) =>{
          <MDBNavbarNav left>
             
             <MDBNavItem tag="div" className="menu-item" id="menu-item">
+              <MDBNavLink to="#whoarewe" onClick={()=>{this.scrollTo('whoarewe')}}>Who Are We</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem tag="div" className="menu-item" id="menu-item">
+              <MDBNavLink to="#impact" onClick={()=>{this.scrollTo('impact')}}>Societal Impact</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem tag="div" className="menu-item" id="menu-item">
               <MDBNavLink to="#work" onClick={()=>{this.scrollTo('work')}}>Our Work</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#news" onClick={()=>{this.scrollTo('news')}}>News</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#casestudies" onClick={()=>{this.scrollTo('casestudies')}}>Case Studies</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
               <MDBNavLink to="#testimonials" onClick={()=>{this.scrollTo('testimonials')}}>Testimonials</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
+              <MDBNavLink to="#casestudies" onClick={()=>{this.scrollTo('casestudies')}}>Case Studies</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem className="menu-item" id="menu-item">
               <MDBNavLink to="#appreciation" onClick={()=>{this.scrollTo('appreciation')}}>Appreciation</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#!" onClick={()=>{this.scrollTo('our_partners')}}>Our Partners</MDBNavLink>
+              <MDBNavLink to="#news" onClick={()=>{this.scrollTo('news')}}>News</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#about" onClick={()=>{this.scrollTo('about_us')}}>About Us</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#team" onClick={()=>{this.scrollTo('team')}}>Our Team</MDBNavLink>
-            </MDBNavItem>
+
             <MDBNavItem className="menu-item" id="menu-item">
               <MDBNavLink to="#contact" onClick={()=>{this.scrollTo('contact')}}>Contact Us</MDBNavLink>
             </MDBNavItem>
 
             </MDBNavbarNav>
            <MDBNavbarNav right>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item" to="/about">About Us</MDBNavLink>
+            </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink className="menu-item right-1" to="/gallery">Gallery</MDBNavLink>
             </MDBNavItem>
@@ -86,12 +93,13 @@ scrollTo = (target) =>{
              </MDBNavbarNav>
      </MDBCollapse>
 </MDBNavbar>
+<WhoAreWe name="whoarewe"/>
+<SocietalImpact name="impact"/>
 <Work name="work"/>
-<News name="news"/>
-<CaseStudies name="casestudies"/>
-<Team name="team"/>
 <Testimonials name="testimonials"/>
+<CaseStudies name="casestudies"/>
 <Appreciation name="appreciation"/>
+<News name="news"/>
 <Contact name="contact"/>
 </Box>
   );

@@ -9,6 +9,7 @@ import 'fontsource-roboto';
 import Donate from './Donate/Donate.js';
 import GalleryPage from './Gallery/GalleryPage.js';
 import Home from './Home';
+import About from './About';
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/gallery">
             <GalleryPage />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
           <Route path="/">
             <Home />

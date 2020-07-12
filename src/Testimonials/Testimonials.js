@@ -49,7 +49,7 @@ export default class Testimonials extends Component{
 	
 	render(){
 		return(
-			<Box id="appreciation">
+			<Box id="testimonials">
 			
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			TESTIMONIALS

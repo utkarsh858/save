@@ -1,7 +1,7 @@
 #casestudies{
 	margin-bottom: 100px;
 	/*background-color:red;*/
-	background-image: linear-gradient(to bottom left, white, white,#9BF6FF );
+	/*background-image: linear-gradient(to bottom left, white, white,#9BF6FF );*/
 }
 
 
@@ -40,14 +40,13 @@
 }
 
 .case-textbox:hover{
-	background-color: #FFC6FF;
+	background-color: #ffb627;
 }
 
 .case-upper-part{
 	font-size:4vw;
-	border-bottom-width:2px;
-	border-bottom-color:#EF476F;
-	background-color: #EF476F;
+
+	background-color: #621708;
 	color : white;
 	padding: 10px 200px 0px 20px;
 	/*margin: 10px 10px 10px 10px;*/

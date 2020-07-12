@@ -1,0 +1,25 @@
+.mem-box{
+
+}
+.mem-title{
+background-color: #621708;
+color:white;
+padding: 10px 20px 10px 20px;
+font-size: 2em !important;
+}
+.mem-content{
+background-color: #ffc971;
+}
+.mem-image{
+width:200px;
+}
+
+.mem-list{
+  list-style-type: square;
+  margin: 0;
+  padding: 20px;
+
+	font-size: 1.5em;
+}
+.mem-item{
+}

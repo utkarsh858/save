@@ -15,6 +15,9 @@ export default class GalleryPage extends Component{
 		}
 	}
 	componentDidMount = async()=>{
+	document.title="SAVE - Gallery"
+
+
 		this.setState({isLoading:true})
 		await api.getGalleryImages(1,20).then(images_list => {
 			this.setState({

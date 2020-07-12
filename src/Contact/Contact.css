@@ -4,7 +4,7 @@
 	display: block;
 }
 #contact{
-	background-image: linear-gradient(to bottom right,white,white, #BDB2FF);
+	/*background-image: linear-gradient(to bottom right,white,white, #BDB2FF);*/
 }
 
 .cont-right{
@@ -18,7 +18,7 @@
 .details{
 	position: absolute;
 	bottom:0px;
-	background-color: #EF476F;
+	background-color: #621708;
 	width:100%;
 	padding: 10px 0px 10px 20px;
 }
@@ -49,8 +49,8 @@
 }
 
 .social{
-	background-color:#9BF6FF;
-	color:#EF476F;
+	background-color:#ff9505;
+	color:#621708;
 	border-radius: 50%;
 	height: 15vw;
 	width:15vw;
@@ -60,11 +60,13 @@
 	display: inline-block;
 	margin-left: 5px;
 	cursor: pointer;
+
+	margin:0px 20px 0px 20px;
 }
 
 .social:hover{
-	background-color: #EF476F;
-	color:#9BF6FF;
+	background-color: #621708;
+	color:#ff9505;
 }
 .center{
 	text-align:center;
@@ -89,14 +91,15 @@
 }
 
 .cont-button{
-	color: white;
-	background-color: #EF476F;
+	/*color: white;*/
+	font-weight: bold;
+	background-color: #ff9505;
 	margin-top: 20px;
 	border-width: 0px;
 	padding: 10px 30px 10px 30px;
 }
 
-.cont-button:active{
-	color: black;
-background-color: white;
+.cont-button:hover{
+	/*color: black;*/
+background-color: #ffb627;
 }

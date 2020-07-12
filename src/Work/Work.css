@@ -9,28 +9,22 @@ position: relative;
 border-width: 0px !important;
 z-index: 1;
 background-color: transparent !important;
+position: relative;
 }
 
 .card:hover{
-	background-color:  #FFC6FF !important;
+	background-color:  #ffb627 !important;
+	color:black;
 }
 
-.section{
-	border-color: #EF476F;
-	color: #EF476F;
-	border-width: 2px;
-	border-left-style: solid;
-	padding-left: 10px;
-	height: 2.3em;
-	padding-top: 10px;
-	font-size: 1.3em;
-}
+
 
 #card-icon{
-	color: #EF476F;
+	color: #621708;
 	font-size:3vw;
-	position: relative;
-	left:90%;
+	position: absolute;
+	right:0px;
+	bottom: 0px;
 	transform: scale(0.7);
 }
 
@@ -45,7 +39,7 @@ background-color: transparent !important;
 .pagination{
 	display: inline-block;
 	/*background-color: red;*/
-	color: #EF476F;
+	color: #621708;
 	font-size: 1.5em;
 	z-index: 30;
 	position: absolute;
@@ -67,7 +61,7 @@ background-color: transparent !important;
 
 }
 .pagination-active{
-	background-color: #EF476F;
+	background-color: #621708;
 	color:white;
 }
 
@@ -85,7 +79,7 @@ margin-left: 20px;
 	/*background: red;*/
 }
 .dialog-title{
-background-color: #EF476F;
+background-color: #621708;
 /*height:2.5em;
 font-size:3em;*/
 padding: 10px 20px 10px 20px;
@@ -108,9 +102,9 @@ float:right;
 }
 /*, #9BF6FF, #BDB2FF*/
 .dialog-content{
-	 background-image: linear-gradient(to bottom right,white,#9BF6FF );
-
-	/*background-color: green;*/
+	 /*background-image: linear-gradient(to bottom right,white,#9BF6FF );*/
+	 /*color: white;*/
+	background-color: #ffc971;
 
 }
 .dialog-content-text{
@@ -128,12 +122,12 @@ float:right;
 border-width: 0px;
 height: 50px;
 width:100%;
-background-color: #BDB2FF;
+background-color: #ff9505;
 color:black;
 font-size:1.5em;
 }
 
 .dialog-close-button:hover{
-
-	background-color: #FFC6FF;
+	cursor: pointer;
+	/*background-color: #FFC6FF;*/
 }

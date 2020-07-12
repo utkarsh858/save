@@ -1,0 +1,21 @@
+.obj-item{
+	width:200px;
+	background-color:red !important;
+
+}
+
+.obj-1{
+	font-size:1em;
+}
+
+.obj-2{
+	font-size:3em;
+	padding:10px 0px 10px 10px;
+	background-color: #621708;
+	color:white;
+}
+
+.obj-3{
+	padding-top: 20px;
+	font-size:1.3em;
+}

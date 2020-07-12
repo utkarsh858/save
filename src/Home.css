@@ -1,35 +1,40 @@
 .logo{
 	height: 40vmin;
+
 	margin-bottom: 20px;
 position: absolute;
-top:0px;
+top:70px;
 left:0px;
+/*transform: translate(0,50%);*/
 	/*display: block;*/
 	/*display: inline;*/
 	/*position: relative;*/
 	/*bottom:-40vmin;*/
 	/*float:left;*/
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
 .logo{
 	display: none;
 }
 }
 .logo-text{
-	/*width:50%;*/
-	/*height: 40vmin;*/
-	/*padding: 0px 0px 40px 0px;*/
-	/*margin-bottom: 40px;*/
-	/*margin-top: 40px;*/
-	font-family: 'Fredericka the Great', Roboto, sans-serif;
-	font-size: 24vmin;
-	/*color:#EF476F;*/
 
-	display: block;
-	/*height:300px;*/
-	/*background-color: red;*/
-	/*background-color: red;*/
+	font-family: 'Love Ya Like A Sister', Roboto, sans-serif;
+	font-size: 25vmin;
+	background-color:#621708;
+	color:white;
+
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0);
 	text-align: center;
+	margin-top:50px;
+	margin-bottom:50px;
+	padding-left:50px;
+	padding-right:50px;
+	padding-bottom:50px;
+	/*height: 30vmin;*/
 }
 .logo-text-caption{
 font-size:24px;
@@ -46,10 +51,12 @@ font-family: Montserrat, sans-serif;
 
 .menu{
 	border-top: 5px;
-	border-color: #EF476F;
+	border-color: #621708;
+	/*border-color: black;*/
 	border-top-style: solid;
-	/*background-color:  #9BF6FF;*/
-	 background-image: linear-gradient(to bottom right, #9BF6FF , #BDB2FF);
+	background-color:  #ff9505 ;
+	color : white !important;
+	 /*background-image: linear-gradient(to bottom right, #9BF6FF , #BDB2FF);*/
 	 display: block;
 	padding: 0px 0px 0px 0px !important;
 	position: sticky !important;
@@ -57,12 +64,12 @@ font-family: Montserrat, sans-serif;
 	z-index: 100;
 }
 .menu-item{
-	color:white !important;
+	/*color:white !important;*/
 }
 
 
 .right-1{
-	background-color: #EF476F;
+	background-color: #621708;
 	color : white !important;
 	/*width:100px;*/
 
@@ -75,9 +82,20 @@ font-family: Montserrat, sans-serif;
 }
 
 .menu-item:hover{
-	background-color: #FFC6FF;
+	background-color: #ffb627;
 	color:white !important;
 }
 .right-1:hover,.right-0:hover{
 	background-color: black;
+}
+
+.section{
+	border-color: #621708;
+	color: #621708;
+	border-width: 2px;
+	border-left-style: solid;
+	padding-left: 10px;
+	height: 2.3em;
+	padding-top: 10px;
+	font-size: 1.3em;
 }
