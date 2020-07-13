@@ -33,5 +33,5 @@
 }
 .si-but:hover{
 	text-decoration:none;
-	background-color: #ffb627;
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 }

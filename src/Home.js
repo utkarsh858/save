@@ -54,7 +54,7 @@ scrollTo = (target) =>{
          <MDBNavbarNav left>
             
             <MDBNavItem tag="div" className="menu-item" id="menu-item">
-              <MDBNavLink to="#whoarewe" onClick={()=>{this.scrollTo('whoarewe')}}>Who Are We</MDBNavLink>
+              <MDBNavLink to="#whoarewe" onClick={()=>{this.scrollTo('whoarewe')}}>Our Story</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem tag="div" className="menu-item" id="menu-item">
               <MDBNavLink to="#impact" onClick={()=>{this.scrollTo('impact')}}>Societal Impact</MDBNavLink>

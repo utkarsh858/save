@@ -12,6 +12,8 @@
 	font-size:3em;
 	padding:10px 0px 10px 10px;
 	background-color: #621708;
+	background-image: linear-gradient(to bottom right,transparent, black 80%);
+	
 	color:white;
 }
 

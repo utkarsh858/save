@@ -13,7 +13,8 @@ position: relative;
 }
 
 .card:hover{
-	background-color:  #ffb627 !important;
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
+	/*background-color:  #ffb627 !important;*/
 	color:black;
 }
 
@@ -56,6 +57,10 @@ position: relative;
 	width:30px;
 	text-align: center;
 }
+.pagination-elem:hover{
+		background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
+
+}
 .pagination-elem-link{
 	display: block;
 
@@ -67,10 +72,18 @@ position: relative;
 
 .pagination-prev{
 margin-right: 20px;
+padding: 0 5px 0px 5px;
 }
 
 .pagination-next{
+padding: 0 5px 0px 5px;
+
 margin-left: 20px;
+}
+
+.pagination-prev:hover,.pagination-next:hover{
+		background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
+
 }
 
 /*Dialog styles*/
@@ -104,7 +117,7 @@ float:right;
 .dialog-content{
 	 /*background-image: linear-gradient(to bottom right,white,#9BF6FF );*/
 	 /*color: white;*/
-	background-color: #ffc971;
+	background-color: #FDFFB6;
 
 }
 .dialog-content-text{
@@ -129,5 +142,7 @@ font-size:1.5em;
 
 .dialog-close-button:hover{
 	cursor: pointer;
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
+	
 	/*background-color: #FFC6FF;*/
 }

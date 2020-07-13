@@ -19,6 +19,8 @@
 	position: absolute;
 	bottom:0px;
 	background-color: #621708;
+	background-image: linear-gradient(to bottom right,transparent, black 80%);
+	
 	width:100%;
 	padding: 10px 0px 10px 20px;
 }
@@ -65,8 +67,7 @@
 }
 
 .social:hover{
-	background-color: #621708;
-	color:#ff9505;
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 }
 .center{
 	text-align:center;
@@ -101,5 +102,6 @@
 
 .cont-button:hover{
 	/*color: black;*/
-background-color: #ffb627;
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
+
 }

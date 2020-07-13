@@ -1,0 +1,20 @@
+#compliances{
+	padding-bottom: 80px;
+}
+
+.sc-1,.sc-2,.sc-3{
+	width:200px;
+	border-width: 0px;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px 0px 10px 0px;
+	background-color: #ff9505;
+}
+.sc-1:hover,.sc-2:hover,.sc-3:hover{
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
+}
+
+.sc-2{
+	position: relative;
+	top:43px;
+}

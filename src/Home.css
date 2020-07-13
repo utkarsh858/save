@@ -22,6 +22,7 @@ left:0px;
 	font-family: 'Love Ya Like A Sister', Roboto, sans-serif;
 	font-size: 25vmin;
 	background-color:#621708;
+	background-image: linear-gradient(to bottom right,transparent, black 80%);
 	color:white;
 
 	display: inline-block;
@@ -52,10 +53,13 @@ font-family: Montserrat, sans-serif;
 .menu{
 	border-top: 5px;
 	border-color: #621708;
+	/*border-image: linear-gradient(to top right, transparent, black 80%);*/
+	/*border-color: black;*/
 	/*border-color: black;*/
 	border-top-style: solid;
 	background-color:  #ff9505 ;
-	color : white !important;
+	/*color : white !important;*/
+	font-weight: bold;
 	 /*background-image: linear-gradient(to bottom right, #9BF6FF , #BDB2FF);*/
 	 display: block;
 	padding: 0px 0px 0px 0px !important;
@@ -82,11 +86,13 @@ font-family: Montserrat, sans-serif;
 }
 
 .menu-item:hover{
-	background-color: #ffb627;
+	/*background-color: #ffb627;*/
+	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 	color:white !important;
 }
 .right-1:hover,.right-0:hover{
-	background-color: black;
+	background-color: 621708;
+	background-image: linear-gradient(to bottom right,transparent, black 80%);
 }
 
 .section{
