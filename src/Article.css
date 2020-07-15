@@ -1,0 +1,46 @@
+
+.dialog-box{
+	/*background: red;*/
+}
+.dialog-title{
+background-color: #621708;
+/*height:2.5em;
+font-size:3em;*/
+padding: 10px 20px 10px 20px;
+color:white;
+}
+
+.icon-button{
+
+}
+
+.dialog-subtitle{
+font-size: 1.5em;
+padding: 10px 20px 10px 20px;
+display: inline-block;
+}
+
+.dialog-date{
+	float:right;
+}
+.dialog-image{
+width:40%;
+float:right;
+}
+/*, #9BF6FF, #BDB2FF*/
+.dialog-content{
+	 /*background-image: linear-gradient(to bottom right,white,#9BF6FF );*/
+	 /*color: white;*/
+	/*background-color: #FDFFB6;*/
+
+/*white-space: pre-line !important;*/
+}
+.dialog-content-text{
+padding: 10px 20px 10px 20px;
+margin-bottom: 0px;  
+}
+
+.dialog-gallery{
+	margin-left :100px;
+	margin-right:100px;
+}

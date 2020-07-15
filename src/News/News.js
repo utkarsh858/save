@@ -40,31 +40,20 @@ export default class News extends Component{
 			perPage: 8,
 			current_page: 0,
 			limit: 3,
-			open: false,
-			dialogTitle: '',
-			dialogSubtitle:'',
-			dialogImages :[],
-			dialogCoverImage: '',
-			dialogContent: '',
-			dialogDate: '',
+
 		}
 	}
 	
 	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
-    this.setState({
-    open: true,
-    dialogTitle : title,
-    dialogSubtitle : sub_title,
-    dialogCoverImage : cover_image,
-    dialogContent : content,
-    dialogDate : date,
-    dialogImages : images,
-    });
+
+    window.localStorage.setItem('title',title);
+    window.localStorage.setItem('sub_title',sub_title);
+    window.localStorage.setItem('cover_image',cover_image);
+    window.localStorage.setItem('content',content);
+    window.localStorage.setItem('date',JSON.stringify(date));
+    window.localStorage.setItem('images',JSON.stringify(images));
   	}
 
-	handleClose = () => {
-    this.setState({ open: false });
-  	}
 
   	setNumOfPages = async() => {
   		this.setState({isLoading:true})
@@ -109,7 +98,12 @@ export default class News extends Component{
 					<Grid item xs={12} sm={3}>
 					<Card 
 					class="card news-card-width"
-					onClick={()=>{this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images)}}>
+					onClick={()=>{
+						this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
+				window.location.href = window.location.origin+"/article"
+
+					}}
+					>
 					<CardMedia
 					class="card-media"
 					component='img'
@@ -168,44 +162,7 @@ export default class News extends Component{
             previousClassName={'pagination-prev'}
             nextClassName={'pagination-next'}
             />
-           
-			<Dialog
-          fullScreen
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          scroll="body"
-          class="dialog-box"
-        	>
-
-          <DialogTitle class="dialog-title" id="dialog-title">
-          {this.state.dialogTitle}
-
-
-          </DialogTitle>
-
-
-          <DialogContent class="dialog-content">
-          <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
-            <DialogContentText 
-            class="dialog-content-text"
-            id="alert-dialog-description">
-
-
-            <img src={this.state.dialogCoverImage} class="dialog-image"/>
-            
-            {this.state.dialogContent}
-
-            </DialogContentText>
-
-          </DialogContent>
-          <DialogActions class="dialog-actions">
-            <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+         
 			</ Box>
 			)
 		}

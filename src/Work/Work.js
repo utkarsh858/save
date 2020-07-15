@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import{
+	Link,
+} from "react-router-dom";
 import {Box,
 	Button,
 	Grid,
@@ -40,31 +43,19 @@ export default class Work extends Component{
 			perPage: 6,
 			current_page: 0,
 			limit: 3,
-			open: false,
-			dialogTitle: '',
-			dialogSubtitle:'',
-			dialogImages :[],
-			dialogCoverImage: '',
-			dialogContent: '',
-			dialogDate: '',
 		}
 	}
 	
 	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
-    this.setState({
-    open: true,
-    dialogTitle : title,
-    dialogSubtitle : sub_title,
-    dialogCoverImage : cover_image,
-    dialogContent : content,
-    dialogDate : date,
-    dialogImages : images,
-    });
+    window.localStorage.setItem('title',title);
+    window.localStorage.setItem('sub_title',sub_title);
+    window.localStorage.setItem('cover_image',cover_image);
+    window.localStorage.setItem('content',content);
+    window.localStorage.setItem('date',JSON.stringify(date));
+    window.localStorage.setItem('images',JSON.stringify(images));
   	}
 
-	handleClose = () => {
-    this.setState({ open: false });
-  	}
+
 
   	setNumofPages = async() => {
   		this.setState({isLoading:true})
@@ -95,6 +86,7 @@ export default class Work extends Component{
 		this.updatePage();
 	}
 	updatePage = async () => {
+					// onClick={()=>{}
 		
 
 		await api.getOurWorksByPage(this.state.current_page+1,this.state.perPage).then(our_works => {	
@@ -104,12 +96,20 @@ export default class Work extends Component{
 				// our_works : our_works.data.data,
 				isLoading: false,
 				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
+				// window.location.href = window.location.origin+"/article"
 				our_works_visual : our_works.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
+
+
 					<Card 
 					class="card work-card-width"
-					onClick={()=>{this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images)}}>
+					onClick={()=>{
+						this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
+				window.location.href = window.location.origin+"/article"
+
+					}}
+					>
 					<CardMedia
 					class="card-media"
 					component='img'
@@ -129,6 +129,7 @@ export default class Work extends Component{
 					<ArrowForward id="card-icon"/>
 					
 					</Card>
+
 					</Grid>
 					)
 				})
@@ -168,45 +169,48 @@ export default class Work extends Component{
             nextClassName={'pagination-next'}
             />
 
-			<Dialog
-          fullScreen
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          scroll="body"
-          class="dialog-box"
-        	>
 
-          <DialogTitle class="dialog-title" id="dialog-title">
-          {this.state.dialogTitle}
-
-
-          </DialogTitle>
-
-
-          <DialogContent class="dialog-content">
-          <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
-            <DialogContentText 
-            class="dialog-content-text"
-            id="alert-dialog-description">
-
-
-            <img src={this.state.dialogCoverImage} class="dialog-image"/>
-            
-            {this.state.dialogContent}
-
-
-            </DialogContentText>
-
-          </DialogContent>
-          <DialogActions class="dialog-actions">
-            <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
 			</ Box>
 			)
 		}
 	}
+
+
+			// <Dialog
+   //        fullScreen
+   //        open={this.state.open}
+   //        onClose={this.handleClose}
+   //        aria-labelledby="alert-dialog-title"
+   //        aria-describedby="alert-dialog-description"
+   //        scroll="body"
+   //        class="dialog-box"
+   //      	>
+
+   //        <DialogTitle class="dialog-title" id="dialog-title">
+   //        {this.state.dialogTitle}
+
+
+   //        </DialogTitle>
+
+
+   //        <DialogContent class="dialog-content">
+   //        <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
+   //          <DialogContentText 
+   //          class="dialog-content-text"
+   //          id="alert-dialog-description">
+
+
+   //          <img src={this.state.dialogCoverImage} class="dialog-image"/>
+            
+   //          {this.state.dialogContent}
+
+
+   //          </DialogContentText>
+
+   //        </DialogContent>
+   //        <DialogActions class="dialog-actions">
+   //          <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
+   //            Close
+   //          </Button>
+   //        </DialogActions>
+   //      </Dialog>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{Component} from 'react';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,9 +11,12 @@ import Donate from './Donate/Donate.js';
 import GalleryPage from './Gallery/GalleryPage.js';
 import Home from './Home';
 import About from './About';
+import Article from './Article';
 import "./App.css"
 
-function App() {
+class App extends Component {
+
+  render(){
   return (
     <React.Fragment><div id="Clouds">
   <div class="Cloud Foreground"></div>
@@ -54,6 +58,9 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
+          <Route path="/article">
+            <Article />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -63,6 +70,7 @@ function App() {
 
     </React.Fragment>
   );
+}
 }
 
 export default App;

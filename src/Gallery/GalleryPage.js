@@ -34,7 +34,7 @@ export default class GalleryPage extends Component{
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			GALLERY
 			</Typography>
-			<GridGallery images={this.state.images}/>
+			<GridGallery class="dialog-gallery" images={this.state.images}/>
 			</Box>
 		)
 	}
