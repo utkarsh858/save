@@ -15,34 +15,9 @@ import api from '../api'
 
 import './Contact.css';
 
-export default class Contact extends Component{
-	constructor(props){
-		super(props)
-		this.state = {
-			name:"",
-			email:"",
-			query:"",
-			confirmMsg:"",
-		}
-	}
-	submit = async()=>{
-	await api.submitQueryForm(this.state);
-	this.setState({
-		confirmMsg:"Thank You. We will reply as soon as possible",
-	})
-	}
-
+class Form extends Component{
 	render(){
 		return(
-			<Box id="contact">
-			<Typography gutterBottom variant="h5" display="block" class="section">
-			CONTACT US
-			</Typography>
-			<Grid container spacing={1}>
-			<Grid item xs={12} sm={6}>
-			<Typography gutterBottom variant="body1" class="impression">
-			We'd love to hear from You.
-			</Typography>
 				<form class="form">
 				<TextField id="name" label="Name" variant="outlined" fullWidth
 
@@ -67,11 +42,51 @@ export default class Contact extends Component{
 				}}
 
 				/>
-            <Button onClick={this.submit} class="cont-button">
+            <Button onClick={this.props.submitHandler} class="cont-button">
               Submit
-            </Button>
+            </Button><br/>
+            </form>
+		)
+	}
+}
+
+export default class Contact extends Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			name:"",
+			email:"",
+			query:"",
+			confirmMsg:"",
+			show :true,
+		}
+	}
+	submit = async()=>{
+	await api.submitQueryForm(this.state).then(data => {
+		this.setState({
+		confirmMsg:"Thank You. We will reply as soon as possible",
+		show : false,
+	})
+	});
+	
+	}
+
+	render(){
+		var form = (this.state.show)? <Form submitHandler={this.submit} /> :'';
+			
+		return(
+			<Box id="contact">
+			<Typography gutterBottom variant="h5" display="block" class="section">
+			CONTACT US
+			</Typography>
+			<Grid container spacing={1}>
+			<Grid item xs={12} sm={6}>
+			<Typography gutterBottom variant="body1" class="impression">
+			We'd love to hear from You.
+			</Typography>
+			{form}
             {this.state.confirmMsg}
-				</form>
+				
             
 			</Grid>
 			<Grid item xs={12} sm={6} class="cont-right">

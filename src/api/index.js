@@ -40,6 +40,7 @@ const apis = {
 	getGalleryImages,
 	getNumOfWorks,
 	getNumOfNews,
+	getAppreciationLetters,
 }
 
 export default apis

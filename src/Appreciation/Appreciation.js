@@ -60,7 +60,7 @@ export default class Appreciation extends Component{
 			<Grid container spacing={1}>
 			<Grid item xs={12} sm={6} >
 			<Card class="appr-image-cont">
-			<img src={filler} class="appr-image"/>
+			<img src={this.state.image} class="appr-image"/>
 			</Card>
 			</Grid >
 			<Grid item xs={12} sm={6}>

@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import 'fontsource-roboto';
 import Donate from './Donate/Donate.js';
 import GalleryPage from './Gallery/GalleryPage.js';
@@ -19,6 +20,17 @@ class App extends Component {
   render(){
   return (
     <React.Fragment><div id="Clouds">
+     <Helmet>
+      <title>SAVE</title>
+      <meta name="keywords" content="NGO, Value Education" />
+      <meta
+        name="description"
+        content="An NGO for creating leaders"
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+      <script id="bolt" src="https://sboxcheckout-static.citruspay.com/bolt/run/bolt.min.js" bolt-
+color="ff9505" bolt-logo={require('./logo.png')}></script>
+    </Helmet>
   <div class="Cloud Foreground"></div>
   <div class="Cloud Background"></div>
   <div class="Cloud Foreground"></div>

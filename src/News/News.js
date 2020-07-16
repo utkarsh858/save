@@ -108,7 +108,7 @@ export default class News extends Component{
 					class="card-media"
 					component='img'
 					height={200}
-					image='https://i.ibb.co/d2qnXbP/Whats-App-Image-2020-06-16-at-10-22-05-AM.jpg'
+					image={data.cover_image}
 					title="Paella dish"
 					/>
 					<CardContent>

@@ -1,23 +1,57 @@
 .mem-box{
 border-radius: 0px;
+/*width: 800px;*/
+}
+.mem-dialog-title{
+background-color: #621708;
+
+}
+.mem-text-cont{
+	/*background-color: green;*/
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-top-width: 3px;
+	border-top-color: white;
+	border-top-style: solid;
+	border-bottom-width: 3px;
+	border-bottom-color: white;
+	border-bottom-style: solid; 
+	/*padding-left: 20px*/
+}
+.mem-content-text{
+	/*min-width: 400px;*/
+	display: inline-block;
+	max-width:600px;
+	/*background-color: red;*/
+	color: white;
+	border: 2px 0px 2px 0px solid white;
+	/*position: relative;*/
+	/*top:50%;*/
+	/*transform: translate(0,-50%);*/
 }
 .mem-title{
-background-color: #621708;
-color:white;
-padding: 10px 20px 10px 20px;
-font-size: 2em !important;
+	margin-top: 40px;
+	margin-bottom: 20px;
+font-size: 1.6em;
 }
 .mem-content{
-background-color: #ffc971;
+background-color: #621708;
 }
 .mem-image{
-width:200px;
+max-width:30vmax;
+margin-top: 20px;
+margin-bottom: 20px;
+margin-left: 20px;
+/*height:100%;*/
+float: left;
 }
 
 .mem-list{
   list-style-type: square;
   margin: 0;
-  padding: 20px;
+  /*margin-left: 20px;*/
+  /*padding: 20px;*/
 
 	font-size: 1.5em;
 }

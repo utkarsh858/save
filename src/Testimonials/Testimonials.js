@@ -90,7 +90,7 @@ export default class Testimonials extends Component{
 			</Grid>
 			<Grid item xs={12} sm={6} >
 			<Card class="appr-image-cont">
-			<img src={filler} class="appr-image"/>
+			<img src={this.state.image} class="appr-image"/>
 			</Card>
 			</Grid >
 			</Grid>

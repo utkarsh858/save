@@ -108,7 +108,7 @@ export default class CaseStudies extends Component{
 			</Grid>
 			<Grid item xs={12} sm={6} >
 			<Card class="case-image-cont">
-			<img src={filler} class="case-image"/>
+			<img src={this.state.image} class="case-image"/>
 			</Card>
 			</Grid >
 			</Grid>
