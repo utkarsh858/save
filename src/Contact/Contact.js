@@ -93,13 +93,13 @@ export default class Contact extends Component{
 			<img className="image" src ={filler}/>
 			<Typography class="details">
 			<div class="contact">
-			<CallIcon/> +91-9634689949
+			<CallIcon/> +91-9620466011; +91-8375957575
 			</div>
 			<div class="contact">
-			<AlternateEmailIcon/> utkarshshukla.gs@gmail.com
+			<AlternateEmailIcon/> care.save.values@gmail.com
 			</div>
 			<div class="contact"> 
-			<HomeIcon/> Bahadurgarh, Haryana - 124507
+			<HomeIcon/> Head Office: SAVE (Society for Applied Value Education), 32/8 Punjabi Bagh Ext., Delhi – 110026
 			</div>
 			</Typography>
 

@@ -10,7 +10,9 @@
 }
 
 .appr-image{
-	height: 30vw;
+	/*height: 30vw;*/
+	max-width:30vw;
+	max-height: 30vw;
 	display: inline-block;
 	/*margin:auto;*/
 	
@@ -31,7 +33,7 @@
 }
 
 .appr-upper-part{
-	font-size:2vw;
+	font-size:1em;
 	border-bottom-width:2px;
 	border-bottom-color:#EF476F;
 

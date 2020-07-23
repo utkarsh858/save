@@ -28,8 +28,11 @@ export default class CaseStudies extends Component{
 			description:"",
 			image:"",
 			content:"",
-
-			open: false,
+			date:{
+				day:0,
+				month:0,
+				year:0
+			}
 		}
 	}
 	componentDidMount = async()=>{
@@ -47,23 +50,22 @@ export default class CaseStudies extends Component{
 
 	updatePage = () => {
 
-			this.setState({
-				name : this.state.appreciations[this.state.current_page].name,
-				image : this.state.appreciations[this.state.current_page].image,
-				description:this.state.appreciations[this.state.current_page].description,
-				content:this.state.appreciations[this.state.current_page].content,
-			});
+		this.setState({
+			name : this.state.appreciations[this.state.current_page].name,
+			image : this.state.appreciations[this.state.current_page].image,
+			description:this.state.appreciations[this.state.current_page].description,
+			content:this.state.appreciations[this.state.current_page].content,
+		});
 	}
 	
-	handleClickOpen = () => {
-    this.setState({
-    open: true,
-    });
-  	}
-
-	handleClose = () => {
-    this.setState({ open: false });
-  	}
+	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
+		window.localStorage.setItem('title',title);
+		window.localStorage.setItem('sub_title',sub_title);
+		window.localStorage.setItem('cover_image',cover_image);
+		window.localStorage.setItem('content',content);
+		window.localStorage.setItem('date',JSON.stringify(date));
+		window.localStorage.setItem('images',JSON.stringify(images));
+	}
 
 	render(){
 		return(
@@ -80,7 +82,13 @@ export default class CaseStudies extends Component{
 			
 			
 			<Grid item xs={12} sm={6}>
-			<Card class="case-textbox" onClick={()=>{this.handleClickOpen()}}>
+			<Card class="case-textbox" 
+			onClick={()=>{
+				this.handleClickOpen("Meet "+this.state.name,this.state.description,this.state.image,this.state.content,this.state.date,[]);
+				window.location.href = window.location.origin+"/article"
+
+			}}
+			>
 			<Box class="case-upper-part">
 
 
@@ -116,64 +124,27 @@ export default class CaseStudies extends Component{
 
 			<ReactPaginate
 			previousLabel={"<"}
-            nextLabel={">"}
-            breakLabel={"..."}
-            pageCount={this.state.limit}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={(e) => { console.log(e); 		this.setState({
-			current_page : e.selected,
-		}); this.updatePage();}}
+			nextLabel={">"}
+			breakLabel={"..."}
+			pageCount={this.state.limit}
+			marginPagesDisplayed={2}
+			pageRangeDisplayed={5}
+			onPageChange={(e) => { console.log(e); 		this.setState({
+				current_page : e.selected,
+			}); this.updatePage();}}
 
 			containerClassName={"pagination"}
-            pageClassName={"pagination-elem"}
-            pageLinkClassName={'pagination-elem-link'}
-            activeClassName={"pagination-active"}
-            activeLinkClassName={"pagination-active-link"}
-            previousClassName={'pagination-prev'}
-            nextClassName={'pagination-next'}
-            />
+			pageClassName={"pagination-elem"}
+			pageLinkClassName={'pagination-elem-link'}
+			activeClassName={"pagination-active"}
+			activeLinkClassName={"pagination-active-link"}
+			previousClassName={'pagination-prev'}
+			nextClassName={'pagination-next'}
+			/>
 
-			<Dialog
-          fullScreen
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          scroll="body"
-          class="dialog-box"
-        	>
-
-          <DialogTitle class="dialog-title" id="dialog-title">
-          Meet {this.state.name}
-
-
-          </DialogTitle>
-
-
-          <DialogContent class="dialog-content">
-          <Box class="dialog-subtitle">{this.state.description}</Box>
-            <DialogContentText 
-            class="dialog-content-text"
-            id="alert-dialog-description">
-
-
-            <img src={this.state.image} class="dialog-image"/>
-            
-            {this.state.content}
-
-
-            </DialogContentText>
-
-          </DialogContent>
-          <DialogActions class="dialog-actions">
-            <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+			
 			</Box>
 
 			);
+		}
 	}
-}

@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import{
+	Link,
+} from "react-router-dom";
 import {Box,
 	Button,
 	Grid,
@@ -35,17 +38,15 @@ export default class News extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			news_visual : [],
+			our_works_visual : [],
 			isLoading : false,
-			perPage: 8,
+			perPage: 6,
 			current_page: 0,
 			limit: 3,
-
 		}
 	}
 	
 	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
-
     window.localStorage.setItem('title',title);
     window.localStorage.setItem('sub_title',sub_title);
     window.localStorage.setItem('cover_image',cover_image);
@@ -55,9 +56,10 @@ export default class News extends Component{
   	}
 
 
-  	setNumOfPages = async() => {
+
+  	setNumofPages = async() => {
   		this.setState({isLoading:true})
-  		await api.getNumOfNews().then(num => {
+  		await api.getNumOfWorks().then(num => {
   			console.log("Number of Pages");
   			console.log(num.data/(this.state.perPage));
   			this.setState({
@@ -68,7 +70,7 @@ export default class News extends Component{
   	}
 
 	componentDidMount = async () => {
-		this.setNumOfPages();
+		this.setNumofPages();
 	}
 	nextPage = ()=>{
 		this.setState({
@@ -84,18 +86,22 @@ export default class News extends Component{
 		this.updatePage();
 	}
 	updatePage = async () => {
+					// onClick={()=>{}
 		
 
-		await api.getNews(this.state.current_page+1,this.state.perPage).then(news => {	
+		await api.getOurWorksByPage(this.state.current_page+1,this.state.perPage).then(our_works => {	
 			// our_works = JSON.parse(our_works);
 			// console.log(our_works)
 			this.setState({
 				// our_works : our_works.data.data,
 				isLoading: false,
 				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
-				news_visual : news.data.map((data) => {
+				// window.location.href = window.location.origin+"/article"
+				our_works_visual : our_works.data.map((data) => {
 				return (
-					<Grid item xs={12} sm={3}>
+					<Grid item xs={12} sm={4}>
+
+
 					<Card 
 					class="card news-card-width"
 					onClick={()=>{
@@ -107,7 +113,7 @@ export default class News extends Component{
 					<CardMedia
 					class="card-media"
 					component='img'
-					height={200}
+					height='300'
 					image={data.cover_image}
 					title="Paella dish"
 					/>
@@ -123,6 +129,7 @@ export default class News extends Component{
 					<ArrowForward id="card-icon"/>
 					
 					</Card>
+
 					</Grid>
 					)
 				})
@@ -139,9 +146,8 @@ export default class News extends Component{
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			NEWS
 			</Typography><br/>
-		
-			<Grid container spacing={9} class="news-bg">
-			{this.state.news_visual}
+			<Grid container spacing={9}>
+			{this.state.our_works_visual}
 			</Grid>
 			<br/>
 
@@ -162,8 +168,49 @@ export default class News extends Component{
             previousClassName={'pagination-prev'}
             nextClassName={'pagination-next'}
             />
-         
+
+
 			</ Box>
 			)
 		}
 	}
+
+
+			// <Dialog
+   //        fullScreen
+   //        open={this.state.open}
+   //        onClose={this.handleClose}
+   //        aria-labelledby="alert-dialog-title"
+   //        aria-describedby="alert-dialog-description"
+   //        scroll="body"
+   //        class="dialog-box"
+   //      	>
+
+   //        <DialogTitle class="dialog-title" id="dialog-title">
+   //        {this.state.dialogTitle}
+
+
+   //        </DialogTitle>
+
+
+   //        <DialogContent class="dialog-content">
+   //        <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
+   //          <DialogContentText 
+   //          class="dialog-content-text"
+   //          id="alert-dialog-description">
+
+
+   //          <img src={this.state.dialogCoverImage} class="dialog-image"/>
+            
+   //          {this.state.dialogContent}
+
+
+   //          </DialogContentText>
+
+   //        </DialogContent>
+   //        <DialogActions class="dialog-actions">
+   //          <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
+   //            Close
+   //          </Button>
+   //        </DialogActions>
+   //      </Dialog>

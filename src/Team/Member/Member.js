@@ -34,25 +34,32 @@ export default class Member extends Component{
 				)
 			})
 
-
-			if(Math.floor(this.props.key/3)%2==0)
+			console.log(this.props.index);
+			if(Math.floor((this.props.index)/3)%2==0)
 				return(
 			<React.Fragment>
 			<Grid item xs={12} sm={4}>
 
 			<div  className="cell" onClick={ () => {this.handleClickOpen()} }>
-			<img src={this.props.data.image} class='tile-left' />
 
-			<div  className="left">
+			<div  className="right">
 			<Typography variant="h5" display="block" gutterBottom class="team-name">
 			{this.props.data.name}
 			</Typography>
 			<Typography variant="body2" gutterBottom  class="team-desc">
 			{this.props.data.description}</Typography>
 			</div>
+			<img src={this.props.data.image} class='tile-right' />
 			</div>
 
 			</Grid>
+
+
+
+
+
+
+
 			<Dialog
 			open={this.state.open}
 			onClose={this.handleClose}
@@ -85,7 +92,7 @@ export default class Member extends Component{
 			</DialogContentText>
 			</Grid>			
 			<Grid item xs={12} sm={6} spacing={9}>
-			<img src={filler} class="mem-image"/>
+			<img src={this.props.data.image} class="mem-image"/>
 
 			</Grid>
 			</Grid>
@@ -96,27 +103,42 @@ export default class Member extends Component{
 			</DialogContent>
 			</Dialog>
 			</React.Fragment>
+
+
 			)
 			else return(
+			
+
 				<React.Fragment>
 
 			<Grid item xs={12} sm={4}>
 
 
 			<div  className="cell" onClick={ () => {this.handleClickOpen()} }>
-			<div  className="right">
+			<div  className="left">
 			<Typography variant="h5" display="block" gutterBottom class="team-name">
 			{this.props.data.name}
 			</Typography>
 			<Typography variant="body2" gutterBottom class="team-desc">
 			{this.props.data.description}</Typography>
 			</div>
-			<img src={this.props.data.image} class='tile-right' />
+			<img src={this.props.data.image} class='tile-left' />
 
 
 			</div>
 
 			</Grid>
+
+
+
+
+
+
+
+
+
+
+
 			<Dialog
 			open={this.state.open}
 			onClose={this.handleClose}
@@ -134,7 +156,7 @@ export default class Member extends Component{
 			<DialogContent class="mem-content">
 			<Grid container justify="center">
 			<Grid item xs={12} sm={6} spacing={9}>
-			<img src={filler} class="mem-image"/>
+			<img src={this.props.data.image} class="mem-image"/>
 
 			</Grid>
 			<Grid item xs={12} sm={6} class="mem-text-cont">

@@ -27,10 +27,10 @@ export default class Team extends Component{
 			console.log(our_team);
 			this.setState({
 				isLoading:false,
-				our_team_visual : our_team.data.map((data,key)=>{
+				our_team_visual : our_team.data.map((data,index)=>{
 					return(
 
-						<Member data={data} key={key} />
+						<Member data={data} index={index} />
 					)
 				})
 			})

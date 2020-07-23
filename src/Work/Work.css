@@ -1,5 +1,7 @@
 .work-card-width{
 maxWidth:375;
+	background-color:  #ff9505 !important;
+height: 150px;
 }
 
 .card {
@@ -8,8 +10,8 @@ border-radius:0px !important;
 position: relative;
 border-width: 0px !important;
 z-index: 1;
-background-color: transparent !important;
 position: relative;
+display: inline-block;
 }
 
 .card:hover{
@@ -32,7 +34,7 @@ position: relative;
 #work{
 	margin-top: 50px;
 	margin-bottom: 50px;
-	min-height: 1200px;
+	min-height: 550px;
 	position: relative;
 	/*background-color: red;*/
 }

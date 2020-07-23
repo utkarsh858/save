@@ -27,6 +27,12 @@ display: inline-block;
 width:40%;
 float:right;
 }
+
+@media screen and (max-width: 1000px) {
+.dialog-image{
+	width:100%;
+}
+}
 /*, #9BF6FF, #BDB2FF*/
 .dialog-content{
 	 /*background-image: linear-gradient(to bottom right,white,#9BF6FF );*/
@@ -38,6 +44,9 @@ float:right;
 .dialog-content-text{
 padding: 10px 20px 10px 20px;
 margin-bottom: 0px;  
+width:100%;
+  word-wrap: break-word;
+
 }
 
 .dialog-gallery{

@@ -1,7 +1,4 @@
 import React,{Component} from 'react';
-import{
-	Link,
-} from "react-router-dom";
 import {Box,
 	Button,
 	Grid,
@@ -32,21 +29,23 @@ import api from '../api'
 import ReactPaginate from 'react-paginate';
 import GridGallery from 'react-grid-gallery';
 
-import './Work.css'
+import './News.css'
 
-export default class Work extends Component{
+export default class News extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			our_works_visual : [],
+			news_visual : [],
 			isLoading : false,
-			perPage: 6,
+			perPage: 8,
 			current_page: 0,
 			limit: 3,
+
 		}
 	}
 	
 	handleClickOpen = (title,sub_title,cover_image,content,date,images) => {
+
     window.localStorage.setItem('title',title);
     window.localStorage.setItem('sub_title',sub_title);
     window.localStorage.setItem('cover_image',cover_image);
@@ -56,10 +55,9 @@ export default class Work extends Component{
   	}
 
 
-
-  	setNumofPages = async() => {
+  	setNumOfPages = async() => {
   		this.setState({isLoading:true})
-  		await api.getNumOfNews().then(num => {
+  		await api.getNumOfWorks().then(num => {
   			console.log("Number of Pages");
   			console.log(num.data/(this.state.perPage));
   			this.setState({
@@ -70,7 +68,7 @@ export default class Work extends Component{
   	}
 
 	componentDidMount = async () => {
-		this.setNumofPages();
+		this.setNumOfPages();
 	}
 	nextPage = ()=>{
 		this.setState({
@@ -86,31 +84,33 @@ export default class Work extends Component{
 		this.updatePage();
 	}
 	updatePage = async () => {
-					// onClick={()=>{}
 		
 
-		await api.getNews(this.state.current_page+1,this.state.perPage).then(our_works => {	
+		await api.getOurWorksByPage(this.state.current_page+1,this.state.perPage).then(news => {	
 			// our_works = JSON.parse(our_works);
 			// console.log(our_works)
 			this.setState({
 				// our_works : our_works.data.data,
 				isLoading: false,
 				// numOfPages : Math.ceil((our_works.data.data_length)/(this.state.perPage)),
-				// window.location.href = window.location.origin+"/article"
-				our_works_visual : our_works.data.map((data) => {
+				news_visual : news.data.map((data) => {
 				return (
 					<Grid item xs={12} sm={4}>
-
-
 					<Card 
-					class="card work-card-width"
+					class="card news-card-width"
 					onClick={()=>{
 						this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
 				window.location.href = window.location.origin+"/article"
 
 					}}
 					>
-
+					<CardMedia
+					class="card-media"
+					component='img'
+					height={200}
+					image={data.cover_image}
+					title="Paella dish"
+					/>
 					<CardContent>
 					<Typography variant="h6" gutterBottom>{data.title}</Typography>
 					 <br />
@@ -123,7 +123,6 @@ export default class Work extends Component{
 					<ArrowForward id="card-icon"/>
 					
 					</Card>
-
 					</Grid>
 					)
 				})
@@ -136,12 +135,13 @@ export default class Work extends Component{
 
 	render(){
 		return (
-			<Box id="work">
+			<Box id="news">
 			<Typography gutterBottom variant="h5" display="block" class="section">
-			OUR METHODS
+			NEWS
 			</Typography><br/>
-			<Grid container spacing={9}>
-			{this.state.our_works_visual}
+		
+			<Grid container spacing={9} class="news-bg">
+			{this.state.news_visual}
 			</Grid>
 			<br/>
 
@@ -162,49 +162,8 @@ export default class Work extends Component{
             previousClassName={'pagination-prev'}
             nextClassName={'pagination-next'}
             />
-
-
+         
 			</ Box>
 			)
 		}
 	}
-
-
-			// <Dialog
-   //        fullScreen
-   //        open={this.state.open}
-   //        onClose={this.handleClose}
-   //        aria-labelledby="alert-dialog-title"
-   //        aria-describedby="alert-dialog-description"
-   //        scroll="body"
-   //        class="dialog-box"
-   //      	>
-
-   //        <DialogTitle class="dialog-title" id="dialog-title">
-   //        {this.state.dialogTitle}
-
-
-   //        </DialogTitle>
-
-
-   //        <DialogContent class="dialog-content">
-   //        <Box class="dialog-subtitle">{this.state.dialogSubtitle}</Box>
-   //          <DialogContentText 
-   //          class="dialog-content-text"
-   //          id="alert-dialog-description">
-
-
-   //          <img src={this.state.dialogCoverImage} class="dialog-image"/>
-            
-   //          {this.state.dialogContent}
-
-
-   //          </DialogContentText>
-
-   //        </DialogContent>
-   //        <DialogActions class="dialog-actions">
-   //          <Button onClick={this.handleClose} autoFocus class="dialog-close-button">
-   //            Close
-   //          </Button>
-   //        </DialogActions>
-   //      </Dialog>
