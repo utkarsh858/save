@@ -1,12 +1,10 @@
 import React,{Component} from 'react';
-import {Box,Grid,Typography,Tooltip,
+import {Box,Grid,Typography,
 	Dialog,
-	DialogActions,
 	DialogContent,
 	DialogContentText,
 	DialogTitle,
 } from '@material-ui/core';
-import filler from '../filler.png';
 import "./Member.css"
 
 export default class Member extends Component{
@@ -27,15 +25,13 @@ export default class Member extends Component{
 		this.setState({ open: false });
 	}
 	render(){
-		console.log(this.props.data)
 		let achievements_visual = this.props.data.achievements.map((achievement)=>{
 			return(
 				<li class="mem-item">{achievement}</li>
 				)
 			})
 
-			console.log(this.props.index);
-			if(Math.floor((this.props.index)/3)%2==0)
+			if(Math.floor((this.props.index)/3)%2===0)
 				return(
 			<React.Fragment>
 			<Grid item xs={12} sm={4}>
@@ -49,7 +45,7 @@ export default class Member extends Component{
 			<Typography variant="body2" gutterBottom  class="team-desc">
 			{this.props.data.description}</Typography>
 			</div>
-			<img src={this.props.data.image} class='tile-right' />
+			<img src={this.props.data.image} alt="" class='tile-right' />
 			</div>
 
 			</Grid>
@@ -92,7 +88,7 @@ export default class Member extends Component{
 			</DialogContentText>
 			</Grid>			
 			<Grid item xs={12} sm={6} spacing={9}>
-			<img src={this.props.data.image} class="mem-image"/>
+			<img src={this.props.data.image} alt="" class="mem-image"/>
 
 			</Grid>
 			</Grid>
@@ -122,7 +118,7 @@ export default class Member extends Component{
 			<Typography variant="body2" gutterBottom class="team-desc">
 			{this.props.data.description}</Typography>
 			</div>
-			<img src={this.props.data.image} class='tile-left' />
+			<img src={this.props.data.image} alt="" class='tile-left' />
 
 
 			</div>
@@ -156,7 +152,7 @@ export default class Member extends Component{
 			<DialogContent class="mem-content">
 			<Grid container justify="center">
 			<Grid item xs={12} sm={6} spacing={9}>
-			<img src={this.props.data.image} class="mem-image"/>
+			<img src={this.props.data.image}alt="" class="mem-image"/>
 
 			</Grid>
 			<Grid item xs={12} sm={6} class="mem-text-cont">

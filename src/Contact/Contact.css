@@ -4,12 +4,10 @@
 	display: block;
 }
 #contact{
-	/*background-image: linear-gradient(to bottom right,white,white, #BDB2FF);*/
 }
 
 .cont-right{
 	position: relative;
-	/*background-color: red;*/
 	height: 600px;
 	margin-left: 40px;
 	width:500px;
@@ -51,14 +49,13 @@
 }
 
 .social{
-	background-color:#ff9505;
-	color:#621708;
+	background-color:  rgba(255,149,5,0.3);
+	/*color:#621708;*/
+	color:black;
 	border-radius: 50%;
 	height: 15vw;
 	width:15vw;
-	text-align:center;/*
-	vertical-align: middle;*/
-	position: relative;
+	text-align:center;	position: relative;
 	display: inline-block;
 	margin-left: 5px;
 	cursor: pointer;
@@ -74,12 +71,8 @@
 }
 
 #icon{
-/*	position:relative;
-	top:6%;
-	left:6%;*/
-	/*text-align: center;*/
+
 	display: inline-block;
-	/*margin:auto;*/
 	position: absolute;
   left: 50%;
   top: 50%;
@@ -92,7 +85,6 @@
 }
 
 .cont-button{
-	/*color: white;*/
 	font-weight: bold;
 	background-color: #ff9505;
 	margin-top: 20px;
@@ -101,7 +93,6 @@
 }
 
 .cont-button:hover{
-	/*color: black;*/
 	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 
 }

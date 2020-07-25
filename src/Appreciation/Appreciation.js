@@ -1,10 +1,8 @@
 import React,{Component} from 'react';
-import {Box,Grid,Card,CardContent,CardMedia,IconButton,Typography
+import {Box,Grid,Card,Typography
 } from '@material-ui/core';
-import {Pagination} from '@material-ui/lab'; 
-import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
+import {FormatQuoteRounded} from '@material-ui/icons'
 import ReactPaginate from 'react-paginate';
-import filler from "./filler.jpg";
 import './Appreciation.css';
 import api from "../api"
 
@@ -60,7 +58,7 @@ export default class Appreciation extends Component{
 			<Grid container spacing={1}>
 			<Grid item xs={12} sm={6} >
 			<Card class="appr-image-cont">
-			<img src={this.state.image} class="appr-image"/>
+			<img src={this.state.image} class="appr-image" alt=""/>
 			</Card>
 			</Grid >
 			<Grid item xs={12} sm={6}>
@@ -101,7 +99,7 @@ export default class Appreciation extends Component{
             pageCount={this.state.limit}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
-            onPageChange={(e) => { console.log(e); 		this.setState({
+            onPageChange={(e) => { 	this.setState({
 			current_page : e.selected,
 		}); this.updatePage();}}
 

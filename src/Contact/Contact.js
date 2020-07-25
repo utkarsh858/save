@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Box,Grid,Typography,Button,TextField,Avatar,
+import {Box,Grid,Typography,Button,TextField,
 Link
 } from '@material-ui/core';
 import filler from './filler.png';
@@ -82,7 +82,7 @@ export default class Contact extends Component{
 			<Grid container spacing={1}>
 			<Grid item xs={12} sm={6}>
 			<Typography gutterBottom variant="body1" class="impression">
-			We'd love to hear from You.
+				Feel free to reach us for any more queries
 			</Typography>
 			{form}
             {this.state.confirmMsg}
@@ -90,7 +90,7 @@ export default class Contact extends Component{
             
 			</Grid>
 			<Grid item xs={12} sm={6} class="cont-right">
-			<img className="image" src ={filler}/>
+			<img className="image" alt="" src ={filler}/>
 			<Typography class="details">
 			<div class="contact">
 			<CallIcon/> +91-9620466011; +91-8375957575
@@ -109,9 +109,7 @@ export default class Contact extends Component{
 			<Box class="center">
 			<Typography variant="body2" gutterBottom id="seeuson">See us on</Typography>
 			<br/>
-			<div class="social" ><Link><FacebookIcon fontSize="large" id="icon"/></Link></div>
-			<div class="social" ><Link><InstagramIcon fontSize="large" id="icon"/></Link></div>
-			<div class="social" ><Link><TwitterIcon fontSize="large" id="icon"/></Link></div>
+			<div class="social" onClick={()=>{window.location.href="https://www.facebook.com/Society-For-Applied-Value-Education-105862504544645/"}}><FacebookIcon fontSize="large" id="icon"/></div>
 			</Box>
 			</Box>
 		);

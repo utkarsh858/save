@@ -4,8 +4,6 @@ const api = axios.create({
     baseURL: 'https://us-central1-save-2d3cf.cloudfunctions.net/api',
 })
 
-// export const insertMovie = payload => api.post(`/movie`, payload)
-// export const getAllOurWorks = () => api.get(`/our_works`)
 export const submitQueryForm = 
 (data) => api.post('/query',data)
 export const getOurWorksByPage = 

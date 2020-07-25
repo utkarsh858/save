@@ -3,7 +3,7 @@ import {
 	Box,
 	Typography,
 	Grid,
-	Card,
+
 } from '@material-ui/core';
 
 import "./Objectives.css"

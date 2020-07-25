@@ -2,10 +2,8 @@ import React,{Component} from 'react';
 import{
 	Grid,
 	Box,
-	Button,
-	Typography,
+	Button
 } from '@material-ui/core';
-import { Redirect } from "react-router-dom";
 
 import './SocietalImpact.css'
 export default class SocietalImpact extends Component{
@@ -20,25 +18,25 @@ render(){
 		 </Box>
 		 <Grid container justify="space-between" spacing={8}>
 		 <Grid item xs={12} sm={3}>
-		 <img src={require("../images/impact-1.png")} class="si-tile" />
+		 <img src={require("../images/impact-1.png")}alt="impact"  class="si-tile" />
 		 </Grid>
 		 <Grid item xs={12} sm={3}>
-		 <img src={require("../images/impact-2.png")} class="si-tile" />
+		 <img src={require("../images/impact-2.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 <Grid item xs={12} sm={3}>
-		 <img src={require("../images/impact-3.png")} class="si-tile" />
+		 <img src={require("../images/impact-3.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 <Grid item xs={12} sm={3}>
-		 <img src={require("../images/impact-4.png")} class="si-tile" />
+		 <img src={require("../images/impact-4.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 <Grid item xs={12} sm={4}>
-		 <img src={require("../images/impact-5.png")} class="si-tile" />
+		 <img src={require("../images/impact-5.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 <Grid item xs={12} sm={4}>
-		 <img src={require("../images/impact-6.png")} class="si-tile" />
+		 <img src={require("../images/impact-6.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 <Grid item xs={12} sm={4}>
-		 <img src={require("../images/impact-7.png")} class="si-tile" />
+		 <img src={require("../images/impact-7.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 </Grid>
 			<Button onClick={()=>{window.location.href = window.location.origin+"/about";}} class="si-but">Know Us More</Button>

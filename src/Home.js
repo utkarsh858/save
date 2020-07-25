@@ -1,13 +1,11 @@
 import React,{Component} from 'react';
 import logo from './logo.png';
 import {Box} from '@material-ui/core';
-// import React from 'react';
-import { MDBNavbar, MDBNavbarBrand,
+import { MDBNavbar, 
 MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from 'mdbreact';
 import Work from './Work/Work.js';
 import News from './News/News.js';
 import CaseStudies from './CaseStudies/CaseStudies.js';
-import Team from './Team/Team.js';
 import Contact from './Contact/Contact.js';
 import SocietalImpact from './SocietalImpact/SocietalImpact.js';
 import WhoAreWe from './WhoAreWe/WhoAreWe.js';
@@ -44,7 +42,7 @@ scrollTo = (target) =>{
   render(){
   return (
     <Box className="document">
-    <img className="logo" src={logo} />
+    <img className="logo" alt="logo" src={logo} />
     <Box  class="logo-text">SAVE <br/>
     <Box class="logo-text-caption">Society For Applied Value Education</Box>
     </Box>
@@ -104,13 +102,7 @@ scrollTo = (target) =>{
 </Box>
   );
 }
-// <Work />
-// <News />
-// <CaseStudies/>
-// <Team />
-// <Testimonials />
-// <Appreciation />
-// <Contact />
+
 
 }
 

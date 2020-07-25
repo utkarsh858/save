@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import{
 	Grid,
-	Box,
-	Typography,
+	Box
 } from '@material-ui/core';
 import './WhoAreWe.css';
 
@@ -12,25 +11,25 @@ export default class WhoAreWe extends Component{
 			<Box id="whoarewe">
 			<Grid container justify="space-between">
 			<Grid item xs={12} sm={4} >
-			<img src={require("../images/cond-1.png")} class="waw-tile" />
+			<img src={require("../images/cond-1.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			<Grid item xs={12} sm={4} >
-			<img src={require("../images/cond-2.png")} class="waw-tile" />
+			<img src={require("../images/cond-2.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			<Grid item xs={12} sm={4} >
-			<img src={require("../images/cond-3.png")} class="waw-tile" />
+			<img src={require("../images/cond-3.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			<Grid item xs={12} sm={3} >
-			<img src={require("../images/cond-4.png")} class="waw-tile" />
+			<img src={require("../images/cond-4.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			<Grid item xs={12} sm={3} >
-			<img src={require("../images/cond-5.png")} class="waw-tile" />
+			<img src={require("../images/cond-5.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			<Grid item xs={12} sm={3} >
-			<img src={require("../images/cond-6.png")} class="waw-tile" />
+			<img src={require("../images/cond-6.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			<Grid item xs={12} sm={3} >
-			<img src={require("../images/cond-7.png")} class="waw-tile" />
+			<img src={require("../images/cond-7.png")} alt="problem" class="waw-tile" />
 			</Grid>
 			</Grid>
 

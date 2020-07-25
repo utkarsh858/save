@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
-import {Box,Grid,Card,CardContent,CardMedia,IconButton,Typography
+import {Box,Typography
 } from '@material-ui/core';
-import {Pagination} from '@material-ui/lab'; 
-import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
 import ReactPaginate from 'react-paginate';
 import './AppreciationLetters.css';
 import api from "../api"
@@ -53,7 +51,7 @@ export default class AppreciationLetters extends Component{
 			</Typography>
 
 			<center>
-			<img src={this.state.image} class="al-img" />
+			<img src={this.state.image} class="al-img" alt=""/>
 			<Box class="al-name">
 			{this.state.name}
 			</Box>
@@ -69,8 +67,8 @@ export default class AppreciationLetters extends Component{
             breakLabel={"..."}
             pageCount={this.state.limit}
             marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={(e) => { console.log(e); 		this.setState({
+            pageRangeDisplayed={50}
+            onPageChange={(e) => { 		this.setState({
 			current_page : e.selected,
 		}); this.updatePage();}}
 

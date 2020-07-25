@@ -24,7 +24,7 @@ export default class Team extends Component{
 		this.setState({isLoading:true})
 
 		await api.getOurTeam(1,15).then(our_team => {
-			console.log(our_team);
+
 			this.setState({
 				isLoading:false,
 				our_team_visual : our_team.data.map((data,index)=>{

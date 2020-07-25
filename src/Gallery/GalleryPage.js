@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Box,Grid,Typography,Button,TextField,Avatar,
+import {Box,Typography,
 } from '@material-ui/core';
 import GridGallery from 'react-grid-gallery';
 import api from "../api"

@@ -1,16 +1,8 @@
 import React,{Component} from 'react';
 import {
-	Box,Grid,Card,CardContent,CardMedia,IconButton,Typography,	Dialog,
-	DialogActions,
-	DialogContent,
-	DialogContentText,
-	DialogTitle,
-	Button
+	Box,Grid,Card,Typography,
 } from '@material-ui/core';
-import {Pagination} from '@material-ui/lab'; 
-import {ArrowForward,ArrowBack,FormatQuoteRounded} from '@material-ui/icons'
 import ReactPaginate from 'react-paginate';
-import filler from "./filler.jpg";
 import './CaseStudies.css';
 import api from "../api"
 
@@ -116,7 +108,7 @@ export default class CaseStudies extends Component{
 			</Grid>
 			<Grid item xs={12} sm={6} >
 			<Card class="case-image-cont">
-			<img src={this.state.image} class="case-image"/>
+			<img src={this.state.image} alt="" class="case-image"/>
 			</Card>
 			</Grid >
 			</Grid>
@@ -129,7 +121,7 @@ export default class CaseStudies extends Component{
 			pageCount={this.state.limit}
 			marginPagesDisplayed={2}
 			pageRangeDisplayed={5}
-			onPageChange={(e) => { console.log(e); 		this.setState({
+			onPageChange={(e) => {  		this.setState({
 				current_page : e.selected,
 			}); this.updatePage();}}
 

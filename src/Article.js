@@ -1,22 +1,20 @@
 import React,{Component} from 'react';
 import GridGallery from 'react-grid-gallery';
-import {Box,
-	Button,
-	Link
+import {Box
 } from '@material-ui/core';
 import "./Article.css"
 
 export default class Article extends Component{
 	render(){
-    var title = window.localStorage.getItem('title',title);
-    var sub_title = window.localStorage.getItem('sub_title',sub_title);
-    var cover_image = window.localStorage.getItem('cover_image',cover_image);
-    var content = window.localStorage.getItem('content',content);
+    var title = window.localStorage.getItem('title');
+    var sub_title = window.localStorage.getItem('sub_title');
+    var cover_image = window.localStorage.getItem('cover_image');
+    var content = window.localStorage.getItem('content');
 var new_content = content.split ("/n").map ((item, i) => {return(<p key={i}>{item}</p>)})
 
-    var date = JSON.parse(window.localStorage.getItem('date',date));
-    var images = JSON.parse(window.localStorage.getItem('images',JSON.stringify(images)));
-    // console.log(typeof content)
+    var date = JSON.parse(window.localStorage.getItem('date'));
+    var images = JSON.parse(window.localStorage.getItem('images'));
+
 		return(
 			<React.Fragment>
 			<Box class="dialog-title">
@@ -31,7 +29,7 @@ var new_content = content.split ("/n").map ((item, i) => {return(<p key={i}>{ite
 			{sub_title}
 			</Box>
 			<Box class="dialog-content-text">
-            <img src={cover_image} class="dialog-image"/>
+            <img src={cover_image}alt="" class="dialog-image"/>
             {new_content}
 			</Box>
 			<GridGallery images={images}/>

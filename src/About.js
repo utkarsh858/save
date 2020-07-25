@@ -2,13 +2,12 @@ import React,{Component} from 'react';
 import {Box} from '@material-ui/core';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
-import { MDBNavbar, MDBNavbarBrand,
+import { MDBNavbar,
 MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from 'mdbreact';
 import AboutUs from './AboutUs/AboutUs.js';
 import Team from './Team/Team.js';
 import Mentors from './Mentors/Mentors.js';
 import Vision from './Vision/Vision.js';
-import Partners from './Partners/Partners.js';
 import Objectives from './Objectives/Objectives.js';
 import StatutoryCompliances from './StatutoryCompliances/StatutoryCompliances.js';
 import Contact from './Contact/Contact.js';

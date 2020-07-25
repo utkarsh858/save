@@ -1,29 +1,24 @@
 .tile-left{
 	width: 50%;
-	/*height: 100%;*/
 	filter: grayscale(100%);
 	float:left;
 }
 .tile-right{
 	width: 50%;
-	/*height: 100%;*/
 	filter: grayscale(100%);
 	float:right;
 }
 
 .left{
 	width: 50%;
-	/*height:100%;*/
 	float:left;
 	text-align:right;
 	padding-left: 5px;
 	padding-top: 8%;
-	/*padding-right: 10px;*/
 	color : rgba(0,0,0,0);
 }
 .right{
 	width: 50%;
-	/*height:100%;*/
 	text-align:left;
 	float:right;
 	padding-right: 5px;
