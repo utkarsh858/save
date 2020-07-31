@@ -11,8 +11,6 @@ import Vision from './Vision/Vision.js';
 import Objectives from './Objectives/Objectives.js';
 import StatutoryCompliances from './StatutoryCompliances/StatutoryCompliances.js';
 import Contact from './Contact/Contact.js';
-import AppreciationLetters from './AppreciationLetters/AppreciationLetters.js';
-
 export default class About extends Component {
 	  constructor(props){
     super(props)
@@ -52,9 +50,7 @@ render(){
             <MDBNavItem className="menu-item" id="menu-item">
               <MDBNavLink to="#objectives" onClick={()=>{this.scrollTo('objectives')}}>Objectives</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem className="menu-item" id="menu-item">
-              <MDBNavLink to="#letters" onClick={()=>{this.scrollTo('letters')}}>Appreciations</MDBNavLink>
-            </MDBNavItem>
+
             <MDBNavItem className="menu-item" id="menu-item">
               <MDBNavLink to="#compliances" onClick={()=>{this.scrollTo('compliances')}}>Compliances</MDBNavLink>
             </MDBNavItem>
@@ -91,7 +87,6 @@ render(){
 <AboutUs name="aboutus"/>
 <Vision name="vision" />
 <Objectives name="objectives" />
-<AppreciationLetters name="letters"/>
 <StatutoryCompliances name="compliances" />
 <Team name="team"/>
 <Mentors name="mentors"/>

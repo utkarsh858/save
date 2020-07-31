@@ -9,6 +9,11 @@
 	margin-bottom: 50px;
 }
 
+.don-bg{
+	background-color:#FDFFB6;
+	height:100%;
+}
+
 .don-desc{
 /*text-align: center;*/
 font-size:1.5em;
@@ -47,5 +52,6 @@ font-size:1.5em;
 	background-color: transparent !important;
 }
 .don-dia-title{
+	margin-top:10%;
 	font-size: 2em;
 }

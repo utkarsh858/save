@@ -6,7 +6,7 @@ import {Box,
 	CardMedia,
 	Typography,
 } from '@material-ui/core';
-
+ import  {Link} from 'react-router-dom';
 import {ArrowForward} from '@material-ui/icons'
 import api from '../api'
 import ReactPaginate from 'react-paginate';
@@ -76,17 +76,14 @@ export default class News extends Component{
 				return (
 					<Grid item xs={12} sm={4}>
 
-
-					<Card 
-					class="card news-card-width"
-					onClick={()=>{
+					<Link to="/article" onClick={()=>{
 						this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
-				window.location.href = window.location.origin+"/article"
-
-					}}
+					}} class="Link">
+					<Card 
+					class="work-card news-card-width"
 					>
 					<CardMedia
-					class="card-media"
+					class="news-card-media"
 					component='img'
 					height='300'
 					image={data.cover_image}
@@ -101,10 +98,10 @@ export default class News extends Component{
 					</CardContent>
 
 					
-					<ArrowForward id="card-icon"/>
+					<ArrowForward id="work-card-icon"/>
 					
 					</Card>
-
+					</Link>
 					</Grid>
 					)
 				})
@@ -121,9 +118,11 @@ export default class News extends Component{
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			NEWS
 			</Typography><br/>
+			<center>
 			<Grid container spacing={9}>
 			{this.state.our_works_visual}
 			</Grid>
+			</center>
 			<br/>
 
 			<ReactPaginate
@@ -139,13 +138,13 @@ export default class News extends Component{
             	})
              this.updatePage();}}
 
-			containerClassName={"pagination pag-correct"}
-            pageClassName={"pagination-elem"}
-            pageLinkClassName={'pagination-elem-link'}
-            activeClassName={"pagination-active"}
-            activeLinkClassName={"pagination-active-link"}
-            previousClassName={'pagination-prev'}
-            nextClassName={'pagination-next'}
+			containerClassName={"appr-pagination appr-correct"}
+            pageClassName={"appr-pagination-elem"}
+            pageLinkClassName={'appr-pagination-elem-link'}
+            activeClassName={"appr-pagination-active"}
+            activeLinkClassName={"appr-pagination-active-link"}
+            previousClassName={'appr-pagination-prev'}
+            nextClassName={'appr-pagination-next'}
             />
 
 

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+ import  {Link} from 'react-router-dom';
 import {Box,
 	Grid,
 	Card,
@@ -64,7 +64,11 @@ export default class Work extends Component{
 		this.updatePage();
 	}
 	updatePage = async () => {
-		
+				// 			onClick={()=>{
+				// 		this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
+				// window.location.href = window.location.origin+"/article"
+
+				// 	}}
 
 		await api.getNews(this.state.current_page+1,this.state.perPage).then(our_works => {	
 
@@ -74,14 +78,12 @@ export default class Work extends Component{
 				return (
 					<Grid item xs={12} sm={4}>
 
-
-					<Card 
-					class="card work-card-width"
-					onClick={()=>{
+					<Link to="/article" onClick={()=>{
 						this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
-				window.location.href = window.location.origin+"/article"
+					}} class="Link">
+					<Card 
+					class="work-card work-card-width"
 
-					}}
 					>
 
 					<CardContent>
@@ -93,10 +95,10 @@ export default class Work extends Component{
 					</CardContent>
 
 					
-					<ArrowForward id="card-icon"/>
+					<ArrowForward id="work-card-icon"/>
 					
 					</Card>
-
+					</Link>
 					</Grid>
 					)
 				})
@@ -113,9 +115,11 @@ export default class Work extends Component{
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			OUR METHODS
 			</Typography><br/>
+			<center>
 			<Grid container spacing={9}>
 			{this.state.our_works_visual}
 			</Grid>
+			</center>
 			<br/>
 
 			<ReactPaginate
@@ -124,7 +128,7 @@ export default class Work extends Component{
             breakLabel={"..."}
             pageCount={this.state.limit}
             marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={50}
             onPageChange={(e) => { console.log(e);
 
              this.setState({
@@ -132,13 +136,13 @@ export default class Work extends Component{
              });
              this.updatePage();}}
 
-			containerClassName={"pagination pag-correct"}
-            pageClassName={"pagination-elem"}
-            pageLinkClassName={'pagination-elem-link'}
-            activeClassName={"pagination-active"}
-            activeLinkClassName={"pagination-active-link"}
-            previousClassName={'pagination-prev'}
-            nextClassName={'pagination-next'}
+			containerClassName={"appr-pagination appr-correct"}
+            pageClassName={"appr-pagination-elem"}
+            pageLinkClassName={'appr-pagination-elem-link'}
+            activeClassName={"appr-pagination-active"}
+            activeLinkClassName={"appr-pagination-active-link"}
+            previousClassName={'appr-pagination-prev'}
+            nextClassName={'appr-pagination-next'}
             />
 
 

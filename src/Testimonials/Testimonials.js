@@ -23,7 +23,7 @@ export default class Testimonials extends Component{
 	}
 	componentDidMount = async()=>{
 		this.setState({isLoading:true})
-		await api.getTestimonials(1,20).then(appreciation_list => {
+		await api.getTestimonials(1,100).then(appreciation_list => {
 			this.setState({
 				isLoading:false,
 				appreciations : appreciation_list.data,
@@ -99,7 +99,7 @@ export default class Testimonials extends Component{
             breakLabel={"..."}
             pageCount={this.state.limit}
             marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={100}
             onPageChange={(e) => { 	this.setState({
 			current_page : e.selected,
 		}); this.updatePage();}}

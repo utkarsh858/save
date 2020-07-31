@@ -125,13 +125,13 @@ export default class CaseStudies extends Component{
 				current_page : e.selected,
 			}); this.updatePage();}}
 
-			containerClassName={"pagination"}
-			pageClassName={"pagination-elem"}
-			pageLinkClassName={'pagination-elem-link'}
-			activeClassName={"pagination-active"}
-			activeLinkClassName={"pagination-active-link"}
-			previousClassName={'pagination-prev'}
-			nextClassName={'pagination-next'}
+			containerClassName={"appr-pagination"}
+            pageClassName={"appr-pagination-elem"}
+            pageLinkClassName={'appr-pagination-elem-link'}
+            activeClassName={"appr-pagination-active"}
+            activeLinkClassName={"appr-pagination-active-link"}
+            previousClassName={'appr-pagination-prev'}
+            nextClassName={'appr-pagination-next'}
 			/>
 
 			

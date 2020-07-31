@@ -1,5 +1,8 @@
 
-
+#appreciation{
+	position: relative;
+	margin-bottom: 60px;
+}
 
 .appr-image-cont{
 	height:30vw;
@@ -75,10 +78,17 @@ font-size:5vw;
 .appr-pagination{
 	display: inline-block;
 	height:20px;
-	position: relative;
+	/*position: relative;*/
+	position: absolute;
 	left: 50%;
+	bottom: -30px;
 	transform: translate(-50%,0);
 }
+
+.appr-correct{
+	bottom:80px;
+}
+
 .appr-pagination-elem{
 background-color: #ff9505;
 width:10px;

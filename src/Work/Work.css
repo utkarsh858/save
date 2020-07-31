@@ -1,9 +1,9 @@
 .work-card-width{
-maxWidth:375;
+width:200px !important; 
 height: 150px;
 }
 
-.card {
+.work-card {
 	cursor: pointer;
 border-radius:0px !important;
 position: relative;
@@ -14,13 +14,18 @@ position: relative;
 display: inline-block;
 }
 
-.card:hover{
+.work-card:hover{
 	background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 }
 
+.Link{
+	color:black;
+}
+.Link:hover{
+	color:black;
+}
 
-
-#card-icon{
+#work-card-icon{
 	color: #621708;
 	font-size:3vw;
 	position: absolute;
@@ -36,7 +41,7 @@ display: inline-block;
 	position: relative;
 }
 
-.pagination{
+.g-pagination{
 	display: inline-block;
 	color: #621708;
 	font-size: 1.5em;
@@ -45,41 +50,42 @@ display: inline-block;
 	left:50%;
 	transform: translate(-50%,0);
 }
-.pag-correct{
+.g-pag-correct{
 	bottom: -30px;
 }
 
-.pagination-elem{
+.g-pagination-elem{
 	margin-left: 5px;
 	margin-right: 5px;
 	width:30px;
+	text-decoration: none;
 	text-align: center;
 }
-.pagination-elem:hover{
+.g-pagination-elem:hover{
 		background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 
 }
-.pagination-elem-link{
+.g-pagination-elem-link{
 	display: block;
 
 }
-.pagination-active{
+.g-pagination-active{
 	background-color: #621708;
 	color:white;
 }
 
-.pagination-prev{
+.g-pagination-prev{
 margin-right: 20px;
 padding: 0 5px 0px 5px;
 }
 
-.pagination-next{
+.g-pagination-next{
 padding: 0 5px 0px 5px;
 
 margin-left: 20px;
 }
 
-.pagination-prev:hover,.pagination-next:hover{
+.g-pagination-prev:hover,.g-pagination-next:hover{
 		background-image: linear-gradient(to bottom right,transparent, #e85d04 80%);
 
 }
