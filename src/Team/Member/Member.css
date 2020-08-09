@@ -21,6 +21,7 @@ background-color: #621708;
 	max-width:400px;
 	color: white;
 	border: 2px 0px 2px 0px solid white;
+	word-wrap: break-word;
 }
 .mem-title{
 	margin-top: 40px;

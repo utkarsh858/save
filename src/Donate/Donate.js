@@ -22,40 +22,32 @@ export default class Donate extends Component{
 			<center>
 			<img src={require('../images/birds.png')} alt="" class="don-img"/><br/>
 			<Box class="don-intro">
-			Your contribution can unlock potenials!
+			LETS SPREAD THE VALUES TOGETHER
 			</Box>
 			<Box class="don-desc">
 			Our financial records are audited annually <br/><br/>
-			We know it’s important to you that your donation is being used effectively.<br/> It’s
-important to us, too. That’s why we work hard to the highest grades available for
-accountability and transparency.
+<p>
+Due to the happiness and response that we received from the beneficiaries, we long to spread our arms to reach out to more people. To achieve this goal, we need grants from you or your esteemed organisation to help us in our mission to reach out to a large section of young minds within next few years.</p>
+<p>
+This year, we wish to take a step further to invite you to take even more ownership of building SAVE as a movement.
+</p>
+<p>
+Given the crossroads of multifold crises that this generation finds itself today - we need to create support infrastructure for the motivated ones to navigate towards service rather than finding their passion clipped.
+</p>
+
 			</Box>
 			<Box>
-			<Button class="don-but1 don-but" onClick={()=>{this.setState({dialog_monthly:true})}}>Become a monthly contributor</Button>
-			<Button class="don-but2 don-but" onClick={()=>{this.setState({dialog_one_time:true})}}>Make a one-time contribution</Button>
+			<a class="Link" href="/donate/donate-one-time"><Button class="don-but1 don-but" >Become a monthly contributor</Button></a>
+			<a class="Link" href='https://www.payumoney.com/paybypayumoney/#/D13D1345E3365C3FEBB8632C3D484173'><Button class="don-but2 don-but">Make a one-time contribution</Button></a>
 			</Box>
 			</center>
-			<Dialog fullScreen onClose={()=>{this.setState({dialog_monthly:false})}} aria-labelledby="dialog_monthly" open={this.state.dialog_monthly}>
-			<center class="don-bg"> 
-
-			Please choose your preferred donation option<br/>
-			<Button class="don-but" onClick={()=>{window.location.href="https://app.lotuspay.com/merchant/plan/AL00178PHGV3LY"}}>&#8377;500 per month</Button><br/>
-			<Button class="don-but" onClick={()=>{window.location.href="https://app.lotuspay.com/merchant/plan/AL0064MHXXAKYB"}}>&#8377;1,000 per month</Button><br/>
-			<Button class="don-but" onClick={()=>{window.location.href="https://app.lotuspay.com/merchant/plan/AL0060VJRI2HTG"}}>&#8377;2,000 per month</Button><br/>
-			<Button class="don-but" onClick={()=>{window.location.href="https://app.lotuspay.com/merchant/plan/AL0064VS28SNUN"}}>&#8377;3,000 per month</Button><br/>
-			<Button class="don-but" onClick={()=>{window.location.href="https://app.lotuspay.com/merchant/plan/AL0031UQEKT1HR"}}>&#8377;5,000 per month</Button><br/>
-			<Button class="don-but" onClick={()=>{window.location.href="https://app.lotuspay.com/merchant/plan/AL0031KQFSWRYU"}}>&#8377;10,000 per month</Button><br/>
+			
+			
+			<center>
+			<p class="don-desc">"Investing in shares give returns to the owner. Investing in people give returns to the whole world"</p>
+			<p class="don-desc">The financial capital will be invested into carving out learning journeys for young dreamers into principle-centered leaders, social entrepreneurs and volunteers. The major cost is incurred into facilitation, alumni support, travel,  food, accommodation and other logistics. </p>
+			<p class="don-desc">For more details, mail: <a href="mailto:care.save.values@gmail.com">care.save.values@gmail.com</a></p>
 			</center>
-			</Dialog>
-			<Dialog fullScreen  onClose={()=>{this.setState({dialog_one_time:false})}} aria-labelledby="dialog_one_time" open={this.state.dialog_one_time}>
-			<center class="don-bg">
-			One-time Donation<br/>
-			<br/>
-			<div class="don-dia-title">PayU Portal</div>
-<div class='pm-button'><a href='https://www.payumoney.com/paybypayumoney/#/D13D1345E3365C3FEBB8632C3D484173'><img src='https://www.payumoney.com/media/images/payby_payumoney/new_buttons/22.png' /></a></div>
-	</center>
-
-			</Dialog>
 			</Box>
 		)
 	}

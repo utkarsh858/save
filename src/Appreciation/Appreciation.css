@@ -3,6 +3,9 @@
 	position: relative;
 	margin-bottom: 60px;
 }
+#testimonials{
+	position: relative;
+}
 
 .appr-image-cont{
 	height:30vw;
@@ -21,9 +24,14 @@
 }
 
 .appr-textbox{
-	height:30vw;
+	height:20vw;
 	text-align: center;
 	color: black;
+/*	position: absolute;
+	display: block;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);*/
 }
 
 .appr-upper-part{
@@ -58,7 +66,9 @@
 	display: inline-block;
 }
 
-
+.appr-quote{
+	font-size:1.3em;
+}
 
 #appr-quotemark-start{
 

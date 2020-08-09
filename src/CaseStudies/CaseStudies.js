@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {
 	Box,Grid,Card,Typography,
 } from '@material-ui/core';
+ import  {Link} from 'react-router-dom';
+
 import ReactPaginate from 'react-paginate';
 import './CaseStudies.css';
 import api from "../api"
@@ -74,12 +76,11 @@ export default class CaseStudies extends Component{
 			
 			
 			<Grid item xs={12} sm={6}>
-			<Card class="case-textbox" 
-			onClick={()=>{
+			<Link to="/info" onClick={()=>{
 				this.handleClickOpen("Meet "+this.state.name,this.state.description,this.state.image,this.state.content,this.state.date,[]);
-				window.location.href = window.location.origin+"/article"
+			}} class="Link">
+			<Card class="case-textbox" 
 
-			}}
 			>
 			<Box class="case-upper-part">
 
@@ -105,11 +106,13 @@ export default class CaseStudies extends Component{
 
 			</Box>
 			</Card>
+			</Link>
 			</Grid>
 			<Grid item xs={12} sm={6} >
 			<Card class="case-image-cont">
 			<img src={this.state.image} alt="" class="case-image"/>
 			</Card>
+			
 			</Grid >
 			</Grid>
 			<br/>
@@ -126,12 +129,12 @@ export default class CaseStudies extends Component{
 			}); this.updatePage();}}
 
 			containerClassName={"appr-pagination"}
-            pageClassName={"appr-pagination-elem"}
-            pageLinkClassName={'appr-pagination-elem-link'}
-            activeClassName={"appr-pagination-active"}
-            activeLinkClassName={"appr-pagination-active-link"}
-            previousClassName={'appr-pagination-prev'}
-            nextClassName={'appr-pagination-next'}
+			pageClassName={"appr-pagination-elem"}
+			pageLinkClassName={'appr-pagination-elem-link'}
+			activeClassName={"appr-pagination-active"}
+			activeLinkClassName={"appr-pagination-active-link"}
+			previousClassName={'appr-pagination-prev'}
+			nextClassName={'appr-pagination-next'}
 			/>
 
 			

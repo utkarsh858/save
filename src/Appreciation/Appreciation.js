@@ -1,11 +1,21 @@
 import React,{Component} from 'react';
-import {Box,Grid,Card,Typography
+import {Box,Card,Typography
 } from '@material-ui/core';
 import {FormatQuoteRounded} from '@material-ui/icons'
 import ReactPaginate from 'react-paginate';
 import './Appreciation.css';
 import api from "../api"
 
+class KnowMore extends Component{
+	render(){
+		console.log(this.props.link);
+		if(this.props.link!=""){
+			return(
+				<span>Click <a target="_blank" href={this.props.link}>here</a> to read the full appreciation.</span>
+			)
+		}else return( <span></span>);
+	}
+}
 
 export default class Appreciation extends Component{
 	constructor(props){
@@ -19,6 +29,7 @@ export default class Appreciation extends Component{
 			quote:"",
 			description:"",
 			image:"",
+			link:""
 		}
 	}
 	componentDidMount = async()=>{
@@ -42,10 +53,12 @@ export default class Appreciation extends Component{
 			image : this.state.appreciations[this.state.current_page].image,
 			quote : this.state.appreciations[this.state.current_page].quote,
 			description:this.state.appreciations[this.state.current_page].description,
+			link:this.state.appreciations[this.state.current_page].link,
 		});
 	}
 	
 	render(){
+
 		return(
 			<Box id="appreciation">
 			
@@ -55,13 +68,7 @@ export default class Appreciation extends Component{
 
 
 
-			<Grid container spacing={1}>
-			<Grid item xs={12} sm={6} >
-			<Card class="appr-image-cont">
-			<img src={this.state.image} class="appr-image" alt=""/>
-			</Card>
-			</Grid >
-			<Grid item xs={12} sm={6}>
+
 			<Card class="appr-textbox">
 			<Box class="appr-upper-part">
 
@@ -84,13 +91,13 @@ export default class Appreciation extends Component{
 
 			</Typography>
 			<Typography variant="body2" gutterBottom>
-			{this.state.description}<br/>	
+			{this.state.description}<br/><br/>
+			<br/>
+			<KnowMore link={this.state.link}/>
 			</Typography>
 
 			</Box>
 			</Card>
-			</Grid>
-			</Grid>
 			<br/>
 			<ReactPaginate
 			previousLabel={"<"}
@@ -98,7 +105,7 @@ export default class Appreciation extends Component{
             breakLabel={"..."}
             pageCount={this.state.limit}
             marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={100}
             onPageChange={(e) => { 	this.setState({
 			current_page : e.selected,
 		}); this.updatePage();}}

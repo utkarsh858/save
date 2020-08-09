@@ -25,11 +25,11 @@ export default class Member extends Component{
 		this.setState({ open: false });
 	}
 	render(){
-		let achievements_visual = this.props.data.achievements.map((achievement)=>{
-			return(
-				<li class="mem-item">{achievement}</li>
-				)
-			})
+		// let achievements_visual = this.props.data.achievements.map((achievement)=>{
+		// 	return(
+		// 		<li class="mem-item">{achievement}</li>
+		// 		)
+		// 	})
 
 			if(Math.floor((this.props.index)/3)%2===0)
 				return(
@@ -81,9 +81,7 @@ export default class Member extends Component{
 			<Box class="mem-title">
 			{this.props.data.name}
 			</Box>
-			<ul class="mem-list">
-			{achievements_visual}
-			</ul>
+			{this.props.data.content}
 
 			</DialogContentText>
 			</Grid>			
@@ -163,9 +161,7 @@ export default class Member extends Component{
 			<Box class="mem-title">
 			{this.props.data.name}
 			</Box>
-			<ul class="mem-list">
-			{achievements_visual}
-			</ul>
+			{this.props.data.content}
 
 			</DialogContentText>
 			</Grid>

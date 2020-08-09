@@ -8,10 +8,16 @@ import {
 import {Helmet} from "react-helmet";
 import 'fontsource-roboto';
 import Donate from './Donate/Donate.js';
-import GalleryPage from './Gallery/GalleryPage.js';
-import Home from './Home';
+import DonateOneTime from './Donate/DonateOneTime.js';
+import Contact from './Contact/Contact.js';
+
+import Impact from './Impact';
+import Activities from './Activities';
 import About from './About';
+import Team from './Team/Team';
+import Mentors from './Mentors/Mentors';
 import Article from './Article';
+import Info from './Info';
 import "./App.css"
 
 class App extends Component {
@@ -33,20 +39,34 @@ color="ff9505" bolt-logo={require('./logo.png')}></script>
  
 <Router>
         <Switch>
+          <Route path="/donate/donate-one-time">
+            <DonateOneTime />
+          </Route>
           <Route path="/donate">
             <Donate />
-          </Route>
-          <Route path="/gallery">
-            <GalleryPage />
-          </Route>
-          <Route path="/about">
-            <About />
           </Route>
           <Route path="/article">
             <Article />
           </Route>
+          <Route path="/info">
+            <Info />
+          </Route>
+
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/impact">
+            <Impact />
+          </Route>
+          <Route path="/team">
+          <Team/>
+          <Mentors />
+          </Route>
+          <Route path="/activities">
+            <Activities />
+          </Route>
           <Route path="/">
-            <Home />
+            <About />
           </Route>
         </Switch>
    

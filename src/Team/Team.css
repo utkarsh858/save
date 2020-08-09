@@ -1,3 +1,7 @@
+.section{
+	margin-top: 40px;
+}
+
 .tile-left{
 	width: 50%;
 	filter: grayscale(100%);
@@ -73,6 +77,6 @@ cursor: pointer;
 	width:70vw !important;
 	margin:auto;
 	margin-bottom: 40px;
-	background-color: #ff9505;
+	background-color: rgba(255,149,5,0.3);
 }
 

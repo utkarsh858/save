@@ -78,7 +78,7 @@ export default class Work extends Component{
 				return (
 					<Grid item xs={12} sm={4}>
 
-					<Link to="/article" onClick={()=>{
+					<Link to="/info" onClick={()=>{
 						this.handleClickOpen(data.title,data.sub_title,data.cover_image,data.content,data.date,data.images);
 					}} class="Link">
 					<Card 

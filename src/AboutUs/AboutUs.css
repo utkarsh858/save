@@ -1,6 +1,20 @@
 #aboutus{
 	text-align: center;
-	font-size: 1em;
+	font-size: 1.5em;
 	padding: 60px 20px 30px 20px;
 
+}
+
+.text:nth-child(odd)
+{
+    /*float: right;*/
+    margin-top: 20px;
+    text-align:right;
+    margin-left:50%;
+}
+.text:nth-child(even)
+{
+    margin-top: 20px;
+    /*float: right;*/
+    margin-right:50%;
 }

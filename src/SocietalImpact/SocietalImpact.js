@@ -39,7 +39,6 @@ render(){
 		 <img src={require("../images/impact-7.png")} alt="impact" class="si-tile" />
 		 </Grid>
 		 </Grid>
-			<Button onClick={()=>{window.location.href = window.location.origin+"/about";}} class="si-but">Know Us More</Button>
 		</Box>
 	)
 }

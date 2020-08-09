@@ -1,13 +1,10 @@
 import React,{Component} from 'react';
-import {Box,Grid,Typography,Button,TextField,
-Link
-} from '@material-ui/core';
+import {Box,Grid,Typography,Button,TextField} from '@material-ui/core';
 import filler from './filler.png';
 
+import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from 'mdbreact';
 
 import FacebookIcon from '@material-ui/icons/Facebook'
-import InstagramIcon from '@material-ui/icons/Instagram'
-import TwitterIcon from '@material-ui/icons/Twitter'
 import HomeIcon from '@material-ui/icons/Home'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import CallIcon from '@material-ui/icons/Call'
@@ -75,7 +72,34 @@ export default class Contact extends Component{
 		var form = (this.state.show)? <Form submitHandler={this.submit} /> :'';
 			
 		return(
-			<Box id="contact">
+			<Box id="contact" class="document">
+			    <MDBNavbar light expand="md" className="menu">
+    <MDBNavbarToggler onClick={this.toggleCollapse} />
+        <MDBCollapse id="navbarCollapse4" isOpen={this.state.isOpen} navbar>
+
+                     <MDBNavbarNav right>
+
+            <MDBNavItem>
+              <MDBNavLink className="menu-item" to="/"><b>Home</b></MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item" to="/activities"><b>Activities</b></MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item" to="/team"><b>Team</b></MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item" to="/impact"><b>Impact</b></MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item" to="/contact"><b>Contact Us</b></MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="menu-item right-0" to="/donate"><b>&nbsp;&nbsp;&nbsp;&nbsp;Donate&nbsp;&nbsp;&nbsp;&nbsp;</b></MDBNavLink>
+            </MDBNavItem>
+             </MDBNavbarNav>
+     </MDBCollapse>
+</MDBNavbar>
 			<Typography gutterBottom variant="h5" display="block" class="section">
 			CONTACT US
 			</Typography>

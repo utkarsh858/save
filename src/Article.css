@@ -1,7 +1,24 @@
+#article{
+}
 
+.dialog-arrow{
+	display: inline-block;
+	height:2em;
+}
+.dialog-back-button{
+	color:white !important;
+	display: inline-block;
+	/*height:2px;*/
+	height:100%;
+	width:50px;
+	/*background-color: red;*/
+	/*margin-right: 30px;*/
+	cursor: pointer;
+}
 .dialog-box{
 }
 .dialog-title{
+	margin-top: 40px;	
 background-color: #621708;
 padding: 10px 20px 10px 20px;
 color:white;
@@ -21,7 +38,8 @@ display: inline-block;
 	float:right;
 }
 .dialog-image{
-width:40%;
+max-width:40%;
+max-height: 60%;
 float:right;
 }
 
