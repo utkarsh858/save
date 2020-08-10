@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Box,Card,Typography
+import {Box,Card,Typography,Grid
 } from '@material-ui/core';
 import {FormatQuoteRounded} from '@material-ui/icons'
 import ReactPaginate from 'react-paginate';
@@ -54,8 +54,15 @@ export default class Testimonials extends Component{
 			</Typography>
 
 
+			
+			<Grid container spacing={1}>
+			
+			<Grid item xs={12} sm={6}>
 			<Card class="appr-textbox">
 			<Box class="appr-upper-part">
+
+
+
 
 			<Typography variant="body1" gutterBottom class="appr-quote">
 			<FormatQuoteRounded id="appr-quotemark-start"/>
@@ -78,6 +85,13 @@ export default class Testimonials extends Component{
 
 			</Box>
 			</Card>
+			</Grid>
+			<Grid item xs={12} sm={6} >
+			<Card class="appr-image-cont">
+			<img src={this.state.image} class="appr-image" alt=""/>
+			</Card>
+			</Grid >
+			</Grid>
 			
 			
 			<br/>
